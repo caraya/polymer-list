@@ -1,0 +1,66 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="project-list" attributes="url">
+  <template>
+      <core-ajax 
+         auto 
+         url="{{url}}" 
+         handleAs="json"
+         response="{{projects}}">
+      </core-ajax>
+    <style>
+    h2 {
+      width:100%;
+      background-color: #03A9F4;
+      color: white;
+    }
+    .card {
+      border: 1px solid #bebebe; 
+      padding: 16px; 
+      margin: 16px 96px; 
+      border-radius: 10px;  
+      background-color: #fff; 
+      color: #555;
+    }
+    </style>
+    <div class="card">
+      <template repeat="{{project in projects}}">
+        <h2>{{project.name}}</h2>
+        
+        <div>
+          {{project.description}}
+        </div>
+        
+        <h3>Project Status</h3>
+        
+        <ul>
+          <li>Type: {{project.type}}</li>
+          <li>Stage: {{project.stage}}</li>
+        </ul>
+        
+        <h3>Relevant Links</h3>
+        <ul>
+          <li>Writeup: <a href="{{project.url.writeup}}">{{project.url.writeup}}</a></li>
+          <li>Code: <a href="{{project.url.code}}">{{project.url.code}}</a></li>
+          <li>Other: <a href="{{project.url.other}}">{{project.url.other}}</a></li>
+        </ul>
+        
+        <h3>Project Notes</h3>
+        
+        <div class="project-notes">
+          {{project.notes}}
+        </div>
+      </template>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      ready: function () {
+        console.log('hello world!')
+      }
+    });
+  </script>
+</polymer-element>
+
+

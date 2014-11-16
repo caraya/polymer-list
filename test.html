@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="project-list.html">
+  <style>
+    body {
+      font-family: "RobotoDraft" sans-serif;
+    }
+    core-toolbar {
+      background-color: #03A9F4;
+      color: white;
+    }
+  </style>
+</head>
+
+<body unresolved fullbleed layout vertical>
+  <core-header-panel flex>
+    <core-toolbar class="medium-tall">
+      <core-icon id="nav-menu" icon="menu"></core-icon>
+      <span flex two>My App</span>
+      <core-icon id="search" icon="search"></core-icon>
+      </paper-button>
+    </core-toolbar>
+
+  </core-header-panel>
+
+  <project-list url="projects.json"></project-list>
+</body>
+
+</html>
