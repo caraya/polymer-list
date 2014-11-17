@@ -2,8 +2,8 @@
       "name": "Material Component Experiment",
       "description": "Creating a the web front end for a web application using Web Compontents and Google Paper components. Learn How to use components and how to integrate Paper’s material look ",
       "url": {
-        "writeup": "https://github.com/caraya/material-component",
-        "code": "",
+        "writeup": "",
+        "code": "https://github.com/caraya/polymer-playground",
         "other": ""
       },
       "type": "Code",
