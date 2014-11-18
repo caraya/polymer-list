@@ -1,0 +1,19 @@
+html {
+  font-family: "RobotoDraft" sans-serif;
+}
+core-toolbar {
+  background-color: #03A9F4;
+  color: white;
+}
+
+[main] {
+  background-color: #ffffff;
+}
+
+[drawer] {
+  background-color: #f9f9f9;
+}
+
+core-drawer-panel:not([narrow]) #navicon {
+  display: none;
+}

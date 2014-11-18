@@ -1,0 +1,60 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/core-menu/core-menu.html">
+<link rel="import" href="bower_components/core-item/core-item.html">
+<link rel="import" href="bower_components/core-icons/core-icons.html">
+<link rel="import" href="bower_components/core-icons/social-icons.html">
+<link rel="import" href="bower_components/core-icons/editor-icons.html">
+
+<polymer-element name="project-menu">
+  <template>
+    <style>
+      h3 {
+        text-align: center;
+      }
+    </style>
+      <h3>Professional</h3>
+      <core-menu>
+        <core-item label="Resume" icon="social:person">
+          <a href=""></a>
+        </core-item>
+        <core-item label="Writing" icon="link">
+          <a href="http://publishing-project.rivendellweb.net/"></a>
+        </core-item>
+      </core-menu>
+      
+      <h3>Code and Samples</h3>
+      <core-menu>
+        <core-item label="Github" icon="social:post-github">
+          <a href="https://github.com/caraya/"></a>
+        </core-item>
+        <core-item label="Codepen" icon="social:public">
+          <a href="http://codepen.io/caraya/"></a>
+        </core-item>
+        <core-item label="Labs" icon="social:public">
+          <a href="http://labs.rivendellweb.net/"></a>
+        </core-item>
+        
+        <h3>Social</h3>
+        <core-item label="LinkedIn" icon="social:post-linkedin">
+          <a href="http://www.linkedin.com/in/carlosaraya/"></a>
+        </core-item>
+        <core-item label="Google Plus" icon="social:post-gplus">
+          <a href="https://plus.google.com/+CarlosAraya25/posts/p/pub"></a>
+        </core-item>
+        <core-item label="Twitter" icon="social:post-twitter">
+          <a href=""></a>
+        </core-item>
+      </core-menu>
+
+      <h3>Projects</h3>
+      <core-menu>
+        <core-item class="addNew" label="Add New Project" icon="add-circle"></core-item>
+        <core-item class="edit" label="Edit Project" icon="editor:mode-edit"></core-item>
+        <core-item class="search" label="Search Projects" icon="search"></core-item>
+      </core-menu>
+  </template>
+  <script>
+    Polymer({});
+  </script>
+</polymer-element>

@@ -74,7 +74,7 @@
       "name": "Video in Epub",
       "description": "What do we need to consider if we'll put video in our epub content?Accessibility, network access, other considerations",
       "url": {
-        "writeup": "https://github.com/caraya/docs/edit/master/video-in-epub.md",
+        "writeup": "https://github.com/caraya/docs/blob/master/video-in-epub.md",
         "code": "https://github.com/caraya/video-in-epub",
         "other": ""
       },

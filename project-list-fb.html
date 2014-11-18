@@ -1,40 +1,35 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
 
-<polymer-element name="project-list" attributes="url">
+<polymer-element name="project-list-fb">
   <template>
-      <core-ajax 
-         auto 
-         url="{{url}}" 
-         handleAs="json"
-         response="{{projects}}">
-      </core-ajax>
+    <firebase-element 
+                      id="fbase"
+                      location="https://project-list.firebaseio.com/" 
+                      data="{{data}}">
+    </firebase-element>
+                            
     <style>
-    core-toolbar {
-      margin-bottom: 15px;
-      background-color: #03A9F4;
-      color: white;
-    }
-    .card {
-      font-family: "RobotoDraft", sans-serif;
-      border: 1px solid #000; 
-      padding: 16px; 
-      margin: 16px;
-      border-radius: 10px;
-    }
-    .project-notes {
-      margin-bottom: 2.5em;
-    }
+      core-toolbar {
+        background-color: #03A9F4;
+        color: white;
+      }
+      .card {
+        font-family: "RobotoDraft", sans-serif;
+        border: 1px solid #000; 
+        padding: 16px; 
+        margin: 16px;
+        border-radius: 10px;
+      }
     </style>
     <div class="card">
-      <template repeat="{{project in projects}}">
+      <template repeat="{{project in data}}">
         <core-toolbar>
           <h2>{{project.name}}</h2>
         </core-toolbar>
-        
-        <div class="project-description">
+        <div>
           {{project.description}}
         </div>
         
