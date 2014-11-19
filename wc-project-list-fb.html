@@ -12,59 +12,10 @@
   <script src="js/app.js"></script>
   <!-- Import core and paper elements -->
   <link rel="import" href="elements.html">
-  <!-- import project menu -->
-  <link rel="import" href="project-menu.html">
-  <!--import project-list with Firebase data load -->
-  <link rel="import" href="project-list-fb.html">
-  <!--  <link rel="stylesheet" src="css/app.css">-->
-<style>
-  html {
-    font-family: "RobotoDraft" sans-serif;
-  }
-
-  core-toolbar {
-    background-color: #03A9F4;
-    color: white;
-  }
-
-  [main],
-  [drawer] {
-    background-color: #ffffff;
-  }
-
-  core-drawer-panel:not([narrow]) #navicon {
-    display: none;
-  }
-  </style>
+  <link rel="import" href="project-app-fb.html">
 </head>
 <body unresolved fullbleed layout vertical>
-  <core-drawer-panel id="drawerPanel">
-      <core-header-panel drawer class="tall">
-    <core-toolbar>
-      <h3>Menu</h3>
-    </core-toolbar>
-    <!-- 
-      Custom element holding menu and items, along with script and style
-      Source: project-menu.html
-    -->
-    <project-menu></project-menu>
-    </core-header-panel>
-    
-    <core-header-panel main class="tall">
-    <core-toolbar>
-      <core-icon id="navicon" icon="menu" alt="Menu for narrow displays"></core-icon>
-      <h3 flex three>Portfolio Project List </h3>
-      <core-icon class="addNew" icon="add-circle" alt="Add new project"></core-icon>
-      <core-icon class="edit" icon="editor:mode-edit" alt="Edit Project"></core-icon>
-      <core-icon class="search" icon="search" alt="Search"></core-icon>
-    </core-toolbar>
-    <!--
-      Custom element holding project list, styles and scripts
-      Source: project-list.html
-    -->
-    <project-list-fb></project-list-fb>
-    </core-header-panel>
-  </core-drawer-panel>
+  <project-app-fb></project-app-fb>
 </body>
 
 </html>
