@@ -48,13 +48,20 @@
       </core-menu>
 
       <h3>Projects</h3>
-      <core-menu>
-        <core-item class="addNew" label="Add New Project" icon="add-circle"></core-item>
-        <core-item class="edit" label="Edit Project" icon="editor:mode-edit"></core-item>
-        <core-item class="search" label="Search Projects" icon="search"></core-item>
+      <core-menu on-core-select="{{menuItem}}"valueAttr="name">
+        <core-item label="Add New Project" icon="add-circle" name="addNew"></core-item>
+        <core-item label="Edit Project" icon="editor:mode-edit" name="edit"></core-item>
+        <core-item label="Search Projects" icon="search" name="search"></core-item>
       </core-menu>
   </template>
   <script>
-    Polymer({});
+    Polymer({
+      menuItem: function(event, detail) {
+        console.log("menuItem Fired", detail);
+        this.fire("menuItem", detail.item.getAttribute("name") );
+      }
+      
+    });
+
   </script>
 </polymer-element>

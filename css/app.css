@@ -1,19 +1,21 @@
-html {
-  font-family: "RobotoDraft" sans-serif;
-}
-core-toolbar {
-  background-color: #03A9F4;
-  color: white;
-}
+    html {
+      font-family: "RobotoDraft" sans-serif;
+    }
+    .card {
+      margin: 15px;
+    }
+    core-toolbar {
+      background-color: #03A9F4;
+      color: white;
+    }
+    [main],
+    [drawer] {
+      background-color: #ffffff;
+    }
+    core-drawer-panel:not([narrow]) #navicon {
+      display: none;
+    }
 
-[main] {
-  background-color: #ffffff;
-}
-
-[drawer] {
-  background-color: #f9f9f9;
-}
-
-core-drawer-panel:not([narrow]) #navicon {
-  display: none;
+core-overlay{
+  border: 1px solid black;
 }
