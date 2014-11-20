@@ -1,21 +1,21 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="bower_components/font-roboto/roboto.html">
 <link rel="import" href="bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="bower_components/font-roboto/roboto.html">
 
 <polymer-element name="project-list-fb">
   <template>
     <firebase-element 
-                      id="fbase"
+                      id="base" 
                       location="https://project-list.firebaseio.com/" 
                       data="{{data}}">
     </firebase-element>
-                            
     <style>
       core-toolbar {
-        background-color: #03A9F4;
-        color: white;
-      }
+      margin-bottom: 15px;
+      background-color: #03A9F4;
+      color: white;
+    }
       .card {
         font-family: "RobotoDraft", sans-serif;
         border: 1px solid #000; 
@@ -23,18 +23,26 @@
         margin: 16px;
         border-radius: 10px;
       }
-
       .project-notes {
-      margin-bottom: 2.5em;
-    }
-
+        margin-bottom: 2.5em;
+      }
+      
+      .form {
+        width: 600px;
+      }
     </style>
     <div class="card">
       <template repeat="{{project in data}}">
-        <core-toolbar>
-          <h2>{{project.name}}</h2>
+        <core-toolbar >
+          <h2 flex>{{project.name}}</h2>
+          <core-icon id="topEdit" 
+               icon="editor:mode-edit" 
+               alt="Edit Project" 
+               on-tap="{{editProject}}">
+          </core-icon>
         </core-toolbar>
-        <div>
+        
+        <div class="project-description">
           {{project.description}}
         </div>
         
@@ -58,7 +66,7 @@
           {{project.notes}}
         </div><!-- closes project-notes-->
       </template>
-    </div>
+    </div> <!-- closes card div -->
   </template>
   <script>
     Polymer({});

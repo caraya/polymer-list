@@ -39,7 +39,7 @@
       }
       
       .form {
-        width: 600px;
+        width: 800px;
       }
     </style>
     <core-drawer-panel id="drawerPanel">
@@ -69,13 +69,13 @@
                alt="Add new project" 
                on-tap="{{topAddPClick}}">
           </core-icon>
-
+<!--
           <core-icon id="topEdit" 
                icon="editor:mode-edit" 
                alt="Edit Project" 
                on-tap="{{topEditClick}}">
           </core-icon>
-          
+-->
           <core-icon id="topSearch" 
                      icon="search" 
                      alt="Search">
@@ -91,10 +91,7 @@
       </core-header-panel>
     </core-drawer-panel>
 
-    <core-overlay 
-                  id="addOverlay" 
-                  backdrop="true" 
-                  closeSelector="core-icon">
+    <core-overlay id="addOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
         <h3 flex three>Add Project</h3>
         <core-icon id="addFormClose" 
@@ -108,10 +105,7 @@
       </paper-button>
     </core-overlay>
 
-    <core-overlay 
-                  id="editOverlay" 
-                  backdrop="true" 
-                  closeSelector="core-icon">
+    <core-overlay id="editOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
         <h3 flex three>Edit Project</h3>
         <core-icon id="editFormClose" 
@@ -135,10 +129,10 @@
             this.$.addOverlay.open();
           }
           
-          if (evt.detail === "edit") {
-            console.log(evt);
-            this.$.editOverlay.open();
-          }
+//          if (evt.detail === "edit") {
+//            console.log(evt);
+//            this.$.editOverlay.open();
+//          }
           
           if (evt.detail === "search") {
             console.log(evt);

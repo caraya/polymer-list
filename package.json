@@ -1,7 +1,7 @@
 {
   "name": "polymer-playground",
   "version": "0.0.1",
-  "description": "polymer-playground ==================",
+  "description": "polymer-playground",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "https://github.com/caraya/polymer-playground.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/caraya/polymer-playground/issues"
   },

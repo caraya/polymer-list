@@ -5,49 +5,50 @@
 <polymer-element name="project-form">
   <template>
     <style>
-      .form {
-        padding: 0 3em;
+      .form-content {
+        width: 80%;
+        padding-left: 3em;
       }
     </style>
-    <div class="form">
-    <paper-input-decorator label="Project Name" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
+    <form class="form-content">
+      <paper-input-decorator label="Project Name" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
 
-    <paper-input-decorator label="Project Description" floatingLabel>
-      <paper-autogrow-textarea>
-        <textarea></textarea>
-      </paper-autogrow-textarea>
-    </paper-input-decorator>
+      <paper-input-decorator label="Project Description" floatingLabel>
+        <paper-autogrow-textarea maxRows="10">
+          <textarea></textarea>
+        </paper-autogrow-textarea>
+      </paper-input-decorator>
 
-    <paper-input-decorator label="Writeup URL" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
-
-
-    <paper-input-decorator label="Code URL" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
-
-    <paper-input-decorator label="Other URL" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
+      <paper-input-decorator label="Writeup URL" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
 
 
-    <paper-input-decorator label="Project Type" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
+      <paper-input-decorator label="Code URL" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
 
-    <paper-input-decorator label="Project Status" floatingLabel>
-      <input is="core-input">
-    </paper-input-decorator>
+      <paper-input-decorator label="Other URL" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
 
-    <paper-input-decorator label="Notes" floatingLabel>
-      <paper-autogrow-textarea>
-        <textarea></textarea>
-      </paper-autogrow-textarea>
-    </paper-input-decorator>
-  </div>
+
+      <paper-input-decorator label="Project Type" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
+
+      <paper-input-decorator label="Project Status" floatingLabel>
+        <input is="core-input">
+      </paper-input-decorator>
+
+      <paper-input-decorator label="Notes" floatingLabel>
+        <paper-autogrow-textarea maxRows="10">
+          <textarea></textarea>
+        </paper-autogrow-textarea>
+      </paper-input-decorator>
+    </form>
   </template>
   <script>
     Polymer({})
