@@ -3,13 +3,8 @@
 <link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html">
 
-<polymer-element name="project-list-fb">
+<polymer-element name="project-list-fb" attributes="data">
   <template>
-    <firebase-element 
-                      id="base" 
-                      location="https://project-list.firebaseio.com/" 
-                      data="{{data}}">
-    </firebase-element>
     <style>
       core-toolbar {
       margin-bottom: 15px;
@@ -32,18 +27,19 @@
       }
     </style>
     <div class="card">
-      <template repeat="{{project in data}}">
+      <template repeat="{{project, i in data}}">
         <core-toolbar >
           <h2 flex>{{project.name}}</h2>
-          <core-icon id="topEdit" 
+          <core-icon class="project-edit" 
                icon="editor:mode-edit" 
                alt="Edit Project" 
-               on-tap="{{editProject}}">
+               on-tap="{{handleEdit}}">
           </core-icon>
         </core-toolbar>
         
         <div class="project-description">
           {{project.description}}
+          <h2>{{i}}</h2>
         </div>
         
         <h3>Project Status</h3>
@@ -69,7 +65,14 @@
     </div> <!-- closes card div -->
   </template>
   <script>
-    Polymer({});
+    Polymer({
+      // Trying to get this to fire up an event up the chain
+      // it's not finding the event object.
+      handleEdit: function(evt) {
+        var idx = evt.target.templateInstance.model.i;
+        this.fire('edit-project', {projectId: idx});
+      }
+    });
   </script>
 </polymer-element>
 

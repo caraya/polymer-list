@@ -1,9 +1,7 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="elements.html">
-
-<!-- experimental github card -->
-<link rel="import" href="github-card/webcomponent/github-card.html">
-
+<!-- Firebase Import -->
+<link rel="import" href="bower_components/firebase-element/firebase-element.html"><!-- PROJECT RELATED IMPORTS-->
 <!-- Import project menu -->
 <link rel="import" href="project-menu.html">
 <!-- Import the form element to interact with project data-->
@@ -13,6 +11,11 @@
 
 <polymer-element name="project-app-fb">
   <template>
+        <firebase-element 
+                      id="base" 
+                      location="https://project-list.firebaseio.com/" 
+                      data="{{data}}">
+    </firebase-element>
     <style>
       :host {
         font-family: "RobotoDraft" sans-serif;
@@ -88,7 +91,7 @@
         Custom element holding project list, styles and scripts
         Source: project-list-fb.html
       -->
-        <project-list-fb></project-list-fb>
+        <project-list-fb data="{{data}}" on-edit-project="{{editProject}}"></project-list-fb>
       </core-header-panel>
     </core-drawer-panel>
 
@@ -130,11 +133,6 @@
             this.$.addOverlay.open();
           }
           
-//          if (evt.detail === "edit") {
-//            console.log(evt);
-//            this.$.editOverlay.open();
-//          }
-          
           if (evt.detail === "search") {
             console.log(evt);
           }
@@ -147,12 +145,17 @@
       
       topAddPClick: function (evt, detail) {
         this.$.addOverlay.open();
+      },
+      
+      addProject: function(evt, detail) {
+        this.$.addOverlay.open();
+      },
+      
+      editProject: function(evt, detail) {
+        //this.$.editOverlay.open();
+        console.log(detail);
+        this.$.editOverlay.open(this.data[detail.projectId]);
       }
-      
-//      topEditClick: function (evt, detail) {
-//        this.$.editOverlay.open();
-//      }
-      
     });
   </script>
 </polymer-element>
