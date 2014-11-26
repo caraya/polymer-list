@@ -11,78 +11,106 @@
     // Yay for laziness
     require('load-grunt-tasks')(grunt);
 
-  grunt.initConfig({
+    grunt.initConfig({
 
-    // Hint the grunt file and all files under js/ 
-    // and one directory below
-    jshint: {
-      files: ['Gruntfile.js', 'js/{,*/}*.js'],
-      options: {
-        // options here to override JSHint defaults
-      }
-    },
+      // Hint the grunt file and all files under js/ 
+      // and one directory below
+      jshint: {
+        files: ['Gruntfile.js', 'js/{,*/}*.js'],
+        options: {
+          // options here to override JSHint defaults
+        }
+      },
 
-    autoprefixer: {
-      options: {
-        browsers: ['last 2 versions']
+      autoprefixer: {
+        options: {
+          browsers: ['last 2 versions']
+        },
+        main: {
+          files: [{
+            expand: true,
+            cwd: 'css',
+            src: '*.css',
+            dest: 'css',
+            ext: '.prefixed.css',
+            extDot: 'last'
+          }]
+        }
       },
-      main: {
-        files: [{
-          expand: true,
-          cwd: 'css',
-          src: '*.css',
-          dest: 'css',
-          ext: '.prefixed.css',
-          extDot: 'last'
-        }]
-      }
-    },
 
-    watch: {
-      options: {
-        nospawn: true,
+      // Vulcanize elements.html to reduce the number of 
+      // network requests
+      vulcanize: {
+        elements: {
+          options: {
+            strip: true
+          },
+          files: {
+            'element-vulcanized.html': 'elements.html'
+          }
+        }
       },
-      // Watch all javascript files and hint them
-      js: {
-        files: ['js/{,*/}*.js'],
-        tasks: ['jshint']
-      },
-      // watch all css files and auto prefix if needed
-      styles: {
-        files: [ 'css/{,*/}*.css' ],
-        tasks: ['autoprefixer:main']
-      },
-      // watch the html files, vulcanize and publish
-      html: {
-        files: ['*.html'],
-        tasks: ['vulcanize:elements']
-      }
-    },
 
-  // Vulcanize elements.html to reduce the number of 
-  // network requests
-  vulcanize: {
-    elements: {
-      options: {
-        strip: true
+      'gh-pages': {
+        options: {
+          add: true,
+          message: 'Content committed from Grunt gh-pages'
+        },
+        'all': {
+          // These files will get pushed to the `
+          // gh-pages` branch (the default)
+          src: ['build/**/*']
+        }
       },
-      files: {
-        'element-vulcanized.html': 'elements.html'
-      }
-    }
-  },
 
-'gh-pages': {
-    options: {
-      add: true,
-      message: 'Content committed from Grunt gh-pages'
-    },
-    'all': {
-      // These files will get pushed to the `
-      // gh-pages` branch (the default).
-      src: ['build/**/*']
-    }
-  }
-  }); // closes initConfig
+      'copy': {
+        build: {
+          files: [
+            // includes files within path
+            {
+              expand: true,
+              files: [
+                {
+                  expand: true, // Enable dynamic expansion.
+                  src: [
+                    'js/*.js',
+                    'css/*.css',
+                    'lib/**/',
+                    'images/**',
+                    'bower_components/**/*',
+                    'projects.json',
+                    '*.html'
+                  ], // Actual pattern(s) to match.
+                  dest: 'build/', // Destination path prefix.
+                }
+              ]
+            }
+          ]
+        }
+      },
+
+      watch: {
+        options: {
+          nospawn: true,
+        },
+        // Watch all javascript files and hint them
+        js: {
+          files: ['js/{,*/}*.js'],
+          tasks: ['jshint']
+        },
+        // watch all css files and auto prefix if needed
+        styles: {
+          files: ['css/{,*/}*.css'],
+          tasks: ['autoprefixer:main']
+        },
+        // watch the html files, vulcanize and publish
+        html: {
+          files: ['*.html'],
+          tasks: ['vulcanize:elements']
+        }
+      },
+
+
+    }); // closes initConfig
   }; // closes module.exports
 }()); // closes the use strict function

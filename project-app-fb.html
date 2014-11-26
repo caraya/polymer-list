@@ -116,7 +116,7 @@
                    icon="close" 
                    alt="Close Form">
           </core-icon>
-      </core-toolbar class>
+      </core-toolbar>
       <project-form></project-form>
       <paper-button class="blue-ripple">
         Edit Project
@@ -151,9 +151,10 @@
         this.$.addOverlay.open();
       },
       
-      editProject: function(evt, detail) {
+      editProject: function(evt, detail, sender) {
         //this.$.editOverlay.open();
         console.log(detail);
+        console.log(sender);
         this.$.editOverlay.open(this.data[detail.projectId]);
       }
     });
