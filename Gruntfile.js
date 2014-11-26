@@ -80,7 +80,7 @@
     'all': {
       // These files will get pushed to the `
       // gh-pages` branch (the default).
-      src: ['**/*']
+      src: ['build/**/*']
     }
   }
   }); // closes initConfig
