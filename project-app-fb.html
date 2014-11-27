@@ -1,7 +1,10 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="elements.html">
 <!-- Firebase Import -->
-<link rel="import" href="bower_components/firebase-element/firebase-element.html"><!-- PROJECT RELATED IMPORTS-->
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
+<!-- Firebase Simple Login -->
+<link rel="import" href="bower_components/firebase-element/firebase-login.html">
+<!-- PROJECT RELATED IMPORTS-->
 <!-- Import project menu -->
 <link rel="import" href="project-menu.html">
 <!-- Import the form element to interact with project data-->
@@ -11,11 +14,10 @@
 
 <polymer-element name="project-app-fb">
   <template>
-        <firebase-element 
-                      id="base" 
-                      location="https://project-list.firebaseio.com/" 
-                      data="{{data}}">
+    <firebase-element id="base" location="https://project-list.firebaseio.com/" data="{{data}}">
     </firebase-element>
+    <firebase-login id="login" user="{{user}}" statusKnown="{{statusKnown}}" location="https://project-list.firebaseio.com/" provider="github" on-error="{{error}}">
+    </firebase-login>
     <style>
       :host {
         font-family: "RobotoDraft" sans-serif;
@@ -45,9 +47,14 @@
       .form {
         width: 400px;
       }
+      
+      .small {
+        font-size: 60%;
+        font-weight: bold;
+      }
     </style>
     <core-drawer-panel id="drawerPanel">
-      <core-header-panel drawer class="tall">
+      <core-header-panel drawer>
         <core-toolbar>
           <h3>Menu</h3>
         </core-toolbar>
@@ -58,33 +65,34 @@
         <project-menu on-menuItem="{{menuItem}}" id="pMenu"></project-menu>
       </core-header-panel>
 
-      <core-header-panel main class="tall">
+      <core-header-panel main class="tall" flex>
         <core-toolbar>
-          <core-icon id="navicon" 
-                     icon="menu" 
-                     alt="Menu for narrow displays" 
-                     on-tap="{{navIconClick}}">
+          <core-icon id="navicon" icon="menu" alt="Menu for narrow displays" on-tap="{{navIconClick}}">
           </core-icon>
-          
+
           <h3 flex three>Portfolio Project List </h3>
           
-          <core-icon id="topAddP" 
-               icon="add-circle" 
-               alt="Add new project" 
-               on-tap="{{topAddPClick}}">
+          <!-- Do we really need this one?-->
+          <!-- <p class="small">User ID: {{user.uid || 'No user Logged In'}}</p>-->
+
+          <p class="small">Login status: {{statusKnown && user && 'Logged in' || statusKnown && 'Logged out' || 'Unknown (checking status...)'}}</p>
+
+
+          <core-icon id="logIn" icon="account-circle" alt="log in" on-tap="{{logInClick}}">
           </core-icon>
-<!--
+
+          <core-icon id="topAddP" icon="add-circle" alt="Add new project" on-tap="{{topAddPClick}}">
+          </core-icon>
+          <!--
           <core-icon id="topEdit" 
                icon="editor:mode-edit" 
                alt="Edit Project" 
                on-tap="{{topEditClick}}">
           </core-icon>
--->
-          <core-icon id="topSearch" 
-                     icon="search" 
-                     alt="Search">
-          </core-icon>
 
+          <core-icon id="topSearch" icon="search" alt="Search">
+          </core-icon>
+-->
 
         </core-toolbar>
         <!--
@@ -98,30 +106,48 @@
     <core-overlay id="addOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
         <h3 flex three>Add Project</h3>
-        <core-icon id="addFormClose" 
-             icon="close" 
-             alt="Close Form">
+        <core-icon id="addFormClose" icon="close" alt="Close Form">
         </core-icon>
       </core-toolbar>
       <project-form></project-form>
-      <paper-button class="blue-ripple">
+      <paper-button class="blue-ripple" on-tap="{{addProject}}">
         Add Project
       </paper-button>
     </core-overlay>
 
-    <core-overlay id="editOverlay" backdrop="true" closeSelector="core-icon">
+    <core-overlay id="loginOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
-        <h3 flex three>Edit Project</h3>
-        <core-icon id="editFormClose" 
-                   icon="close" 
-                   alt="Close Form">
-          </core-icon>
+        <h3 flex three>Log In</h3>
+        <core-icon id="loginFormClose" icon="close" alt="Close Form">
+        </core-icon>
       </core-toolbar>
-      <project-form></project-form>
-      <paper-button class="blue-ripple">
-        Edit Project
-      </paper-button>
-    </core-overlay>
+      <paper-input-decorator label="User Name" floatingLabel>
+        <input is="core-input"  value="{{email}}">
+      </paper-input-decorator>
+      <paper-input-decorator label="Password" floatingLabel>
+        <input is="core-input" type="password" value="{{password}}">
+      </paper-input-decorator>
+      <button on-tap="{{logIn}}" hidden?="{{!statusKnown || user}}">Login</button>
+      <button on-tap="{{logOut}}" hidden?="{{!statusKnown || !user}}">Logout</button>
+
+
+  </template>
+  <paper-button class="blue-ripple" on-tap="{{LogIn}}">
+    Log In
+  </paper-button>
+  </core-overlay>
+
+  <core-overlay id="editOverlay" backdrop="true" closeSelector="core-icon">
+    <core-toolbar class="form">
+      <h3 flex three>Edit Project</h3>
+      <core-icon id="editFormClose" icon="close" alt="Close Form">
+      </core-icon>
+    </core-toolbar>
+    <project-form></project-form>
+    <paper-button class="blue-ripple" on-tap="editProject">
+      Edit Project
+    </paper-button>
+  </core-overlay>
   </template>
   <script>
     Polymer({
@@ -132,30 +158,45 @@
             console.log(evt);
             this.$.addOverlay.open();
           }
-          
-          if (evt.detail === "search") {
-            console.log(evt);
+          if (evt.detail === "logIn") {
+            this.$.loginOverlay.open();
           }
         }.bind(this));
       },
-      
+
       navIconClick: function (evt, detail) {
         this.$.drawerPanel.togglePanel();
       },
-      
+
       topAddPClick: function (evt, detail) {
         this.$.addOverlay.open();
       },
-      
-      addProject: function(evt, detail) {
-        this.$.addOverlay.open();
+
+      logInClick: function (evt) {
+        console.log('Tried to log in');
+        console.log(evt);
+        this.$.loginOverlay.open();
       },
-      
-      editProject: function(evt, detail, sender) {
+
+      addProject: function (evt, detail) {
+        new Firebase('').set({
+          "name": "",
+          "description": "",
+          "url": {
+            "writeup": "",
+            "code": "",
+            "other": ""
+          },
+          "type": "",
+          "stage": "",
+          "notes": ""
+        })
+      },
+
+      editProject: function (evt, detail, sender) {
         //this.$.editOverlay.open();
-        console.log(detail);
-        console.log(sender);
-        this.$.editOverlay.open(this.data[detail.projectId]);
+        console.log(evt);
+        this.$.editOverlay.open();
       }
     });
   </script>
