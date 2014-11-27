@@ -18,6 +18,7 @@
       jshint: {
         files: ['Gruntfile.js', 'js/{,*/}*.js'],
         options: {
+          reporter: require('jshint-stylish')
           // options here to override JSHint defaults
         }
       },
@@ -51,18 +52,6 @@
         }
       },
 
-      'gh-pages': {
-        options: {
-          add: true,
-          message: 'Content committed from Grunt gh-pages'
-        },
-        'all': {
-          // These files will get pushed to the `
-          // gh-pages` branch (the default)
-          src: ['build/**/*']
-        }
-      },
-
       'copy': {
         build: {
           files: [
@@ -73,10 +62,10 @@
                 {
                   expand: true, // Enable dynamic expansion.
                   src: [
-                    'js/*.js',
-                    'css/*.css',
+                    'js/{,*/}*.js',
+                    'css/{,*/}*.css',
                     'lib/**/',
-                    'images/**',
+                    'images/{,*/}',
                     'bower_components/**/*',
                     'projects.json',
                     '*.html'
@@ -86,6 +75,18 @@
               ]
             }
           ]
+        }
+      },
+
+      'gh-pages': {
+        options: {
+          add: true,
+          message: 'Content committed from Grunt gh-pages'
+        },
+        'all': {
+          // These files will get pushed to the `
+          // gh-pages` branch (the default)
+          src: ['build/**/*']
         }
       },
 
@@ -109,8 +110,22 @@
           tasks: ['vulcanize:elements']
         }
       },
-
-
     }); // closes initConfig
+    
+    // CUSTOM TASK REGISTRATION
+    // Not sure if I want to register a default task as it may cause more 
+    // problems than it's worth. If you want it, copy the publish task and
+    // rename it default.
+    
+    grunt.task.registerTask(
+      'publish', 
+      [
+        'jshint:all', 
+        'autoprefixer:main', 
+        'copy:build',
+        'gh-pages'
+      ]
+    );
+
   }; // closes module.exports
 }()); // closes the use strict function
