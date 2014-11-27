@@ -67,7 +67,7 @@
         build: {
           files: [
             {
-              expand: true, // Enable dynamic expansion.
+              expand: true,
               src: [
                   'js/*.js',
                   'css/*.css',
@@ -82,13 +82,23 @@
             ]
         }
       },
+      
+      clean: {
+        production: [
+          'css/app.prefixed.css',
+          'build/'
+        ]
+      },
 
       'gh-pages': {
-        options: {
-          message: 'Content committed from Grunt gh-pages',
-          base: "build"
+          options: {
+            message: 'Content committed from Grunt gh-pages',
+            base: './build',
+            dotfiles: true
         },
-        
+          // These files will get pushed to the `
+          // gh-pages` branch (the default)
+          src: ['**/*', '!node_modules'],
       },
 
       watch: {
@@ -117,16 +127,14 @@
     // Not sure if I want to register a default task as it may cause more 
     // problems than it's worth. If you want it, copy the publish task and
     // rename it default.
-
-    grunt.task.registerTask(
-      'publish', [
+    grunt.task.registerTask('publish', [
+        'clean:production',
         'mkdir:build',
         'jshint',
         'autoprefixer:main',
         'copy:build',
         'gh-pages'
-      ]
-    );
+      ]);
 
   }; // closes module.exports
 }()); // closes the use strict function
