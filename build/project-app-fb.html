@@ -6,19 +6,19 @@
 <link rel="import" href="project-menu.html">
 <!-- Import the form element to interact with project data-->
 <link rel="import" href="project-form.html">
-<!-- Import project list -->
+<!-- Import project list with core-ajax wiring for data load -->
 <link rel="import" href="project-list-fb.html">
 
 <polymer-element name="project-app-fb">
   <template>
-      <firebase-element 
-                        id="base" 
-                        location="https://project-list.firebaseio.com/" 
-                        data="{{data}}">
-      </firebase-element>
+        <firebase-element 
+                      id="base" 
+                      location="https://project-list.firebaseio.com/" 
+                      data="{{data}}">
+    </firebase-element>
     <style>
       :host {
-        font-family: "RobotoLight" sans-serif;
+        font-family: "RobotoDraft" sans-serif;
       }
       .card {
         margin: 15px;
@@ -151,9 +151,10 @@
         this.$.addOverlay.open();
       },
       
-      editProject: function(evt, detail) {
+      editProject: function(evt, detail, sender) {
         //this.$.editOverlay.open();
         console.log(detail);
+        console.log(sender);
         this.$.editOverlay.open(this.data[detail.projectId]);
       }
     });

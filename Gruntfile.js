@@ -52,41 +52,47 @@
         }
       },
 
+      //Can't seem to make the copy task create the directory if it doesn't
+      // exist so we go to another task to create the fn directory
+
+      mkdir: {
+        build: {
+          options: {
+            create: ['build']
+          },
+        },
+      },
+
       'copy': {
         build: {
           files: [
-            // includes files within path
             {
-              expand: true,
-              files: [
-                {
-                  expand: true, // Enable dynamic expansion.
-                  src: [
-                    'js/{,*/}*.js',
-                    'css/{,*/}*.css',
-                    'lib/**/',
-                    'images/{,*/}',
-                    'bower_components/**/*',
-                    'projects.json',
-                    '*.html'
-                  ], // Actual pattern(s) to match.
-                  dest: 'build/', // Destination path prefix.
-                }
-              ]
-            }
-          ]
+              expand: true, // Enable dynamic expansion.
+              src: [
+                  'js/*.js',
+                  'css/*.css',
+                  'lib/**/',
+                  'images/*',
+                  'bower_components/**/*',
+                  'projects.json',
+                  '*.html'
+                ],
+              dest: 'build/'
+              }
+            ]
         }
       },
 
       'gh-pages': {
         options: {
           add: true,
-          message: 'Content committed from Grunt gh-pages'
+          message: 'Content committed from Grunt gh-pages',
+          base: "build"
         },
         'all': {
           // These files will get pushed to the `
           // gh-pages` branch (the default)
-          src: ['build/**/*']
+          src: ['**/*'],
         }
       },
 
@@ -111,17 +117,17 @@
         }
       },
     }); // closes initConfig
-    
+
     // CUSTOM TASK REGISTRATION
     // Not sure if I want to register a default task as it may cause more 
     // problems than it's worth. If you want it, copy the publish task and
     // rename it default.
-    
+
     grunt.task.registerTask(
-      'publish', 
-      [
-        'jshint:all', 
-        'autoprefixer:main', 
+      'publish', [
+        'jshint',
+        'autoprefixer:main',
+        'mkdir:build',
         'copy:build',
         'gh-pages'
       ]
