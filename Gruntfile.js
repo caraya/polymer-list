@@ -89,11 +89,6 @@
           message: 'Content committed from Grunt gh-pages',
           base: "build"
         },
-        'all': {
-          // These files will get pushed to the `
-          // gh-pages` branch (the default)
-          src: ['**/*'],
-        }
       },
 
       watch: {
@@ -125,9 +120,9 @@
 
     grunt.task.registerTask(
       'publish', [
+        'mkdir:build',
         'jshint',
         'autoprefixer:main',
-        'mkdir:build',
         'copy:build',
         'gh-pages'
       ]
