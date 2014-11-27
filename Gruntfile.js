@@ -31,7 +31,7 @@
           files: [{
             expand: true,
             cwd: 'css',
-            src: '*.css',
+            src: ['*.css', '!*.prefixed.css'],
             dest: 'css',
             ext: '.prefixed.css',
             extDot: 'last'
