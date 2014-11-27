@@ -85,10 +85,10 @@
 
       'gh-pages': {
         options: {
-          add: true,
           message: 'Content committed from Grunt gh-pages',
           base: "build"
         },
+        
       },
 
       watch: {
