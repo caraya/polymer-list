@@ -2,6 +2,7 @@
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import" href="bower_components/marked-element/marked-element.html">
 
 <polymer-element name="project-list-fb" attributes="data">
   <template>
@@ -37,7 +38,7 @@
         </core-toolbar>
 
         <div class="project-description">
-          {{project.description}}
+          <marked-element text="{{project.description}}"></marked-element>
         </div>
 
         <h3>Project Status</h3>
@@ -60,7 +61,7 @@
         <h3>Project Notes</h3>
 
         <div class="project-notes">
-          {{project.notes}}
+          <marked-element text="{{project.notes}}"></marked-element>
         </div>
         <!-- closes project-notes-->
     </template>
