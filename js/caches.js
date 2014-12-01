@@ -1,3 +1,4 @@
+var Cache, Request, URL, fetch, CacheStorage, self;
 // Cannot feature-detect, as we have these implemented but they reject
 
 if (!Cache.prototype.add) {
@@ -42,7 +43,7 @@ if (!Cache.prototype.addAll) {
           var scheme = new URL(request.url).protocol;
 
           if (scheme !== 'http:' && scheme !== 'https:') {
-            throw new NetworkError("Invalid scheme");
+            throw new NetworkError('Invalid scheme');
           }
 
           return fetch(request.clone());

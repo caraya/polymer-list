@@ -1,7 +1,8 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="elements.html">
 <!-- Firebase Import -->
-<link rel="import" href="bower_components/firebase-element/firebase-element.html"><!-- PROJECT RELATED IMPORTS-->
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
+<!-- PROJECT RELATED IMPORTS-->
 <!-- Import project menu -->
 <link rel="import" href="project-menu.html">
 <!-- Import the form element to interact with project data-->
@@ -60,10 +61,13 @@
 
       <core-header-panel main class="tall">
         <core-toolbar>
-          <core-icon id="navicon" 
+          <!--
+            core-drawer-toggle is new in Polymer 0.5.1
+            and it reduces the amount of CSS and JS you write
+          -->
+          <core-icon core-drawer-toggle
                      icon="menu" 
-                     alt="Menu for narrow displays" 
-                     on-tap="{{navIconClick}}">
+                     alt="Menu for narrow displays">
           </core-icon>
           
           <h3 flex three>Portfolio Project List </h3>
@@ -156,10 +160,6 @@
             console.log(evt);
             this.$.loginOverlay.open();
           }
-          
-          if (evt.detail === "search") {
-            console.log(evt);
-          }
         }.bind(this));
       },
       
@@ -169,10 +169,12 @@
       
       // Functions for items in the top toolbar
       topAddPClick: function (evt, detail) {
+        this.$.loginOverlay.close();
         this.$.addOverlay.open();
       },
       
       topLogIn: function (evt, detail) {
+        this.$.addOverlay.close();
         this.$.loginOverlay.open();
       },
       
