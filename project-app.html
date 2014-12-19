@@ -10,23 +10,15 @@
 
 <polymer-element name="project-app">
   <template>
+    <core-ajax auto url="{{url}}" handleAs="json" response="{{projects}}">
+    </core-ajax>
     <style>
-      :host {
-        font-family: "RobotoDraft" sans-serif;
-      }
       .card {
         margin: 15px;
       }
       core-toolbar {
         background-color: #03A9F4;
         color: white;
-      }
-      [main],
-      [drawer] {
-        background-color: #ffffff;
-      }
-      core-drawer-panel:not([narrow]) #navicon {
-        display: none;
       }
       core-overlay {
         border: 1px solid black;
@@ -56,7 +48,7 @@
 
       <core-header-panel main class="tall">
         <core-toolbar>
-          <core-icon id="navicon" 
+          <core-icon core-drawer-toggle
                      icon="menu" 
                      alt="Menu for narrow displays" 
                      on-tap="{{navIconClick}}">

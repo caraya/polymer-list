@@ -1,11 +1,17 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/marked-element/marked-element.html">
 
-<polymer-element name="project-list-fb" attributes="data">
+<polymer-element name="project-list-fb">
   <template>
+    <firebase-element 
+                  id="project" 
+                  data="{{data}}" 
+                  keys="{{keys}}" 
+                  location="https://project-list.firebaseio.com/" >
+    </firebase-element>
     <style>
       core-toolbar {
         margin-bottom: 15px;
@@ -22,14 +28,11 @@
       .project-notes {
         margin-bottom: 2.5em;
       }
-      .form {
-        width: 600px;
-      }
     </style>
-    <template repeat="{{project, i in data}}">
+    <template repeat="{{key in keys}}">
       <div class="card">
         <core-toolbar>
-          <h3 flex three>{{project.name}}</h3>
+          <h3 flex three>{{data[key].name}}</h3>
           <core-icon 
                      class="project-edit" 
                      icon="editor:mode-edit" 
@@ -38,7 +41,7 @@
         </core-toolbar>
 
         <div class="project-description">
-          <marked-element text="{{project.description}}"></marked-element>
+          <marked-element text="{{data[key].description}}"></marked-element>
         </div>
 
         <h3>Project Status</h3>
@@ -50,23 +53,23 @@
 
         <h3>Relevant Links</h3>
         <ul>
-          <li>Writeup: <a href="{{project.url.writeup}}">{{project.url.writeup}}</a>
+          <li>Writeup: <a href="{{data[key].url.writeup}}">{{project.url.writeup}}</a>
           </li>
-          <li>Code: <a href="{{project.url.code}}">{{project.url.code}}</a>
+          <li>Code: <a href="{{data[key].url.code}}">{{project.url.code}}</a>
           </li>
-          <li>Other: <a href="{{project.url.other}}">{{project.url.other}}</a>
+          <li>Other: <a href="{{data[key].url.other}}">{{project.url.other}}</a>
           </li>
         </ul>
 
         <h3>Project Notes</h3>
 
         <div class="project-notes">
-          <marked-element text="{{project.notes}}"></marked-element>
+          <marked-element text="{{data[key].notes}}"></marked-element>
         </div>
         <!-- closes project-notes-->
-    </template>
     </div>
     <!-- closes card div -->
+    </template>
   </template>
   <script>
     Polymer({

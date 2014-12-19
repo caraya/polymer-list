@@ -1,0 +1,36 @@
+        <core-toolbar>
+          <h3 flex three>{{project.name}}</h3>
+          <core-icon
+                     class="project-edit"
+                     icon="editor:mode-edit"
+                     alt="Edit Project" on-tap="{{handleEdit}}">
+          </core-icon>
+        </core-toolbar>
+
+        <div class="project-description">
+          <marked-element text="{{project.description}}"></marked-element>
+        </div>
+
+        <h3>Project Status</h3>
+
+        <ul>
+          <li>Type: {{project.type}}</li>
+          <li>Stage: {{project.stage}}</li>
+        </ul>
+
+        <h3>Relevant Links</h3>
+        <ul>
+          <li>Writeup: <a href="{{project.url.writeup}}">{{project.url.writeup}}</a>
+          </li>
+          <li>Code: <a href="{{project.url.code}}">{{project.url.code}}</a>
+          </li>
+          <li>Other: <a href="{{project.url.other}}">{{project.url.other}}</a>
+          </li>
+        </ul>
+
+        <h3>Project Notes</h3>
+
+        <div class="project-notes">
+          <marked-element text="{{project.notes}}"></marked-element>
+        </div>
+        <!-- closes project-notes-->

@@ -1,7 +1,4 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="elements.html">
-<!-- Firebase Import -->
-<link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <!-- PROJECT RELATED IMPORTS-->
 <!-- Import project menu -->
 <link rel="import" href="project-menu.html">
@@ -12,11 +9,6 @@
 
 <polymer-element name="project-app-fb">
   <template>
-        <firebase-element 
-                      id="base" 
-                      location="https://project-list.firebaseio.com/" 
-                      data="{{data}}">
-    </firebase-element>
     <style>
       :host {
         font-family: "RobotoDraft" sans-serif;
@@ -100,11 +92,11 @@
         <!--
         Custom element holding project list, styles and scripts
         Source: project-list-fb.html
-      -->
-        <project-list-fb data="{{data}}" on-edit-project="{{editProject}}"></project-list-fb>
+        -->
+        <project-list-fb data="{{data}}" keys="{{keys}}" on-edit-project=" {{editProject}} "></project-list-fb>
       </core-header-panel>
     </core-drawer-panel>
-
+<!--
     <core-overlay id="addOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
         <h3 flex three>Add Project</h3>
@@ -118,7 +110,6 @@
         Add Project
       </paper-button>
     </core-overlay>
-
     <core-overlay id="editOverlay" backdrop="true" closeSelector="core-icon">
       <core-toolbar class="form">
         <h3 flex three>Edit Project</h3>
@@ -145,63 +136,66 @@
         Log In
       </paper-button>
     </core-overlay>
+-->
   </template>
   <script>
-    Polymer({
-      ready: function () {
-        // copy global values into instance properties
-        this.$.pMenu.addEventListener("menuItem", function (evt) {
-          if (evt.detail === "addNew") {
-            console.log(evt);
-            this.$.addOverlay.open();
-          }
+    (function () {
+      Polymer({
+        ready: function () {
+          // copy global values into instance properties
+          this.$.pMenu.addEventListener("menuItem", function (evt) {
+            if (evt.detail === "addNew") {
+              console.log(evt);
+              this.$.addOverlay.open();
+            }
 
-          if (evt.detail === "logIn") {
-            console.log(evt);
-            this.$.loginOverlay.open();
-          }
-        }.bind(this));
-      },
-      
-      navIconClick: function (evt, detail) {
-        this.$.drawerPanel.togglePanel();
-      },
-      
-      // Functions for items in the top toolbar
-      topAddPClick: function (evt, detail) {
-        this.$.loginOverlay.close();
-        this.$.addOverlay.open();
-      },
-      
-      topLogIn: function (evt, detail) {
-        this.$.addOverlay.close();
-        this.$.loginOverlay.open();
-      },
-      
+            if (evt.detail === "logIn") {
+              console.log(evt);
+              this.$.loginOverlay.open();
+            }
+          }.bind(this));
+        },
 
-      addProject: function(evt, detail) {
-//        Simulate other actor setting data to same remote location
-//        new Firebase('').set({
-//          name: 'anonymous',
-//          info: 'none',
-//          more: {
-//            color: "yellow"
-//          }
-//        });
-//      };
-      },
-      
-      logIn: function(evt, detail) {
-        console.log(evt);
-        console.log(detail);
-      },
-      
-      editProject: function(evt, detail, sender) {
-        //this.$.editOverlay.open();
-        console.log(detail);
-        console.log(sender);
-        this.$.editOverlay.open(sender);
-      }
+        navIconClick: function (evt, detail) {
+          this.$.drawerPanel.togglePanel();
+        },
+
+        // Functions for items in the top toolbar
+        topAddPClick: function (evt, detail) {
+          this.$.loginOverlay.close();
+          this.$.addOverlay.open();
+        },
+
+        topLogIn: function (evt, detail) {
+          this.$.addOverlay.close();
+          this.$.loginOverlay.open();
+        },
+
+
+        addProject: function(evt, detail) {
+  //        Simulate other actor setting data to same remote location
+  //        new Firebase('').set({
+  //          name: 'anonymous',
+  //          info: 'none',
+  //          more: {
+  //            color: "yellow"
+  //          }
+  //        });
+  //      };
+        },
+
+        logIn: function(evt, detail) {
+          console.log(evt);
+          console.log(detail);
+        },
+
+        editProject: function(evt, detail, sender) {
+          //this.$.editOverlay.open();
+          console.log(detail);
+          console.log(sender);
+          this.$.editOverlay.open(sender);
+        }
     });
+    })();
   </script>
 </polymer-element>
