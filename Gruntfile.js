@@ -23,21 +23,21 @@
         }
       },
 
-      autoprefixer: {
-        options: {
-          browsers: ['last 2 versions']
-        },
-        main: {
-          files: [{
-            expand: true,
-            cwd: 'css',
-            src: ['*.css', '!*.prefixed.css'],
-            dest: 'css',
-            ext: '.prefixed.css',
-            extDot: 'last'
-          }]
-        }
-      },
+//      autoprefixer: {
+//        options: {
+//          browsers: ['last 2 versions']
+//        },
+//        main: {
+//          files: [{
+//            expand: true,
+//            cwd: 'css',
+//            src: ['*.css', '!*.prefixed.css'],
+//            dest: 'css',
+//            ext: '.prefixed.css',
+//            extDot: 'last'
+//          }]
+//        }
+//      },
 
       // Vulcanize elements.html to reduce the number of 
       // network requests
@@ -131,7 +131,7 @@
         'clean:production',
         'mkdir:build',
         'jshint',
-        'autoprefixer:main',
+        //'autoprefixer:main',
         'copy:build',
         'gh-pages'
       ]);
