@@ -48,17 +48,17 @@
         <h3>Project Status</h3>
 
         <ul>
-          <li>Type: {{project.type}}</li>
-          <li>Stage: {{project.stage}}</li>
+          <li>Type: <span>{{data[key].type}}</span></li>
+          <li>Stage: <span>{{data[key].stage}}</span></li>
         </ul>
 
         <h3>Relevant Links</h3>
         <ul>
-          <li>Writeup: <a href="{{data[key].url.writeup}}">{{project.url.writeup}}</a>
+          <li>Writeup: <a href="{{data[key].url.writeup}}">{{data[key].url.writeup}}</a>
           </li>
-          <li>Code: <a href="{{data[key].url.code}}">{{project.url.code}}</a>
+          <li>Code: <a href="{{data[key].url.code}}">{{data[key].url.code}}</a>
           </li>
-          <li>Other: <a href="{{data[key].url.other}}">{{project.url.other}}</a>
+          <li>Other: <a href="{{data[key].url.other}}">{{data[key].url.other}}</a>
           </li>
         </ul>
 
