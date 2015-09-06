@@ -6,11 +6,11 @@
 
 <polymer-element name="project-list-fb">
   <template>
-    <firebase-element 
-                  id="project" 
-                  data="{{data}}" 
-                  keys="{{keys}}" 
-                  location="https://project-list.firebaseio.com/" >
+    <firebase-element
+                  id="project"
+                  data="{{data}}"
+                  keys="{{keys}}"
+                  location="https://poly-project2.firebaseio.com/" >
     </firebase-element>
     <style>
       core-toolbar {
@@ -33,9 +33,9 @@
       <div class="card">
         <core-toolbar>
           <h3 flex three>{{data[key].name}}</h3>
-          <core-icon 
-                     class="project-edit" 
-                     icon="editor:mode-edit" 
+          <core-icon
+                     class="project-edit"
+                     icon="editor:mode-edit"
                      alt="Edit Project" on-tap="{{handleEdit}}">
           </core-icon>
           <!-- {{keys}} -->
