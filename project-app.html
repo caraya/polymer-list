@@ -1,0 +1,58 @@
+<!-- Import Polymer -->
+<link rel="import" href="bower_components/polymer/polymer.html">
+<!-- Import app-layout -->
+<link rel="import" href="bower_components/app-layout/app-layout.html">
+<link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+<!-- Imports to create hamburger menu -->
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+<!-- Font -->
+<link rel="import" href="bower_components/font-roboto/roboto.html">
+<!-- Import project specific elements -->
+<link rel="import" href="project-list.html">
+<link rel="import" href="project-menu.html">
+
+<dom-module id="project-app">
+
+  <template>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        background-color: #eee;
+      }
+
+      app-drawer {
+        --app-drawer-width: 300px;
+      }
+    </style>
+
+    <app-drawer-layout>
+      <app-drawer>
+        <project-menu></project-menu>
+      </app-drawer>
+      <app-header-layout>
+        <app-header>
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div title>Project List</div>
+          </app-toolbar>
+        </app-header>
+
+
+        <project-list></project-list>
+
+      </app-header-layout>
+    </app-drawer-layout>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: "project-app"
+    });
+  </script>
+
+</dom-module>
+

@@ -1,0 +1,136 @@
+<!-- Must import Polymer first -->
+<link rel="import" href="bower_components/polymer/polymer.html">
+<!-- Iron elements first -->
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+<!-- Paper elements next -->
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-styles/paper-styles-classes.html">
+<!-- Miscellaneous elements. Note that firebase-element is commented as I'm not using it yet -->
+<!--<link rel="import" href="bower_components/firebase-element/firebase.html">-->
+<link rel="import" href="bower_components/marked-element/marked-element.html">
+
+<dom-module id="project-list">
+  <template>
+    <style is="custom-style">
+      body {
+        margin: 0;
+      }
+
+      :host {
+        --paper-card-header: {
+          background-color: var(--paper-blue-400);
+          color: white;
+          text-align: center;
+        };
+      }
+
+      .cards-container {
+        /* Mixins equivalent to flex: row wrap */
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        /* Space between items */
+        @apply(--layout-justified);
+      }
+
+      .card-content {
+        color: #333;
+        background-color: white;
+        text-align: left;
+      }
+
+      .card-actions {
+        /* Mixins equivalent to flex: row wrap */
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        /* Space between items */
+        @apply(--layout-justified);
+      }
+
+
+      paper-card {
+        margin-bottom: 3em;
+        height: 25%;
+        width: 47.5%;
+
+        @apply(--paper-card-header);
+        @apply(--paper-card-header-text);
+        @apply(--paper-card-header-color);
+
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /*
+        If the device width is 1000px or smaller switch the layout to vertical
+        and make the cards 100% of the width
+
+        This is the total width of the screen and we need to account for the
+        300px width of the menu
+
+        This also ensures that mobile devices in portrait mode start with a vertical list
+      */
+      @media screen and (max-width: 1000px){
+        .cards-container {
+          @apply(--layout-vertical);
+        };
+
+        paper-card {
+          width: 100%;
+        }
+      }
+
+
+    </style>
+    <iron-ajax auto
+               url="projects.json"
+               handle-as="json"
+               last-response="{{projects}}"></iron-ajax>
+
+    <div class="cards-container">
+    <template is="dom-repeat" items="{{projects}}" as="project">
+        <paper-card heading>
+            <h1>{{project.name}}</h1>
+          <div class="card-content">
+            <h3><strong>Project type: {{project.stage}}</strong></h3>
+
+            <h3>Description:</h3>
+
+            <marked-element markdown="[[project.description]]">
+              <div class="markdown-html"></div>
+            </marked-element>
+
+            <h3>Project Notes</h3>
+
+            <marked-element markdown="[[project.notes]]">
+              <div class="markdown-html"></div>
+            </marked-element>
+            <h3>Links</h3>
+            <div class="card-actions">
+                <paper-button><a href="{{project.url.code}}">Code</a></paper-button>
+                <paper-button><a href="{{project.url.writeup}}">Writeup</a></paper-button>
+                <paper-button><a href="{{project.url.other}}">Other</a></paper-button>
+            </div>
+          </div>
+        </paper-card>
+
+    </template>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'project-list'
+
+
+    });
+  </script>
+</dom-module>

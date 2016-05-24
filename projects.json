@@ -1,0 +1,485 @@
+[ {
+  "description" : "The web has become as good as, if not better than native experience. I'm looking at what it would take to build a web based reading experience incorporating newer technologies in the CSS, Web APIs and HTML5 arenas. \n\nAt the same time I seek to build a toolbox for these applications \n\nTwo pieces influenced the thinking on this project: Alex Russell's [Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/) and Craig Mod's [Subcompact Publishing](http://craigmod.com/journal/subcompact_publishing/)",
+  "name" : "Progressive and subcompact web reading experiences",
+  "notes" : "This will take a while... I expect to have code and writing to share relatively soon.",
+  "stage" : "Research and Writing",
+  "type" : "Code and Writing",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "[eXist](http://exist-db.org/exist/apps/homepage/index.html) seems to be an alternative to Marklogic when it comes to OS X. \n\nHow do you build applications with XML technologies? How is this different than doing an app with Angular/Polymer and MongoDB / MongoLabs",
+  "name" : "eXist Research ",
+  "notes" : "Pure research, some code to validate the assumptions of the research",
+  "stage" : "Research",
+  "type" : "Other (see notes)",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Based on [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) and [Parable of the Polygons](http://ncase.me/polygons/) research\n\nWhat would it take to create engaged reading experiences for our readers?\n\nHow does it translate to e-books? To other digital platforms?",
+  "name" : "Engaged Readers",
+  "notes" : "",
+  "stage" : "Concept",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "As part of the Athena project, create a markdown document viewer styles with the same options that I want to use for the rest of the project. \n\nIt uses [juicy-markdown](https://github.com/Juicy/juicy-markdown/) for parsing Github Flavored Markdown. It should work with all the GH extensions to Markdown\n\nIt uses [Robot Draft](http://www.google.com/fonts/specimen/Roboto+Condensed) for text and headings and [Source Code Pro](http://www.google.com/fonts/specimen/Source+Code+Pro) for code blocks",
+  "name" : "athena-document",
+  "notes" : "",
+  "stage" : "Released",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/athena-document",
+    "other" : "http://caraya.github.io/athena-document/",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Discusses a particular issue using CDN loaded  resources. When first loading an application ",
+  "name" : "The Trap of CDNs",
+  "notes" : "",
+  "stage" : "Draft",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/blob/master/cdn-remote-loading.md"
+  }
+}, {
+  "description" : "I'm always researching how to incorporate accessibility elements into my digital content. One of the things we can do is to add semantic elements that will, in theory, make the content more accessible to screen readers.",
+  "name" : "ARIA and EPUB Semantics: how much is enough?",
+  "notes" : "",
+  "stage" : "Draft",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "Draft: https://github.com/caraya/docs/blob/master/accessibility.md"
+  }
+}, {
+  "description" : "Lord of the Files: How GitHub Tamed Free Software (And More) was an article first published in [Wired](http://www.wired.com/2012/02/github-2/all/) in February of 2012. It was an interesting article about a company which work I value enough to pay for the service. ",
+  "name" : "Github as a collaborative publishing tool?",
+  "notes" : "",
+  "stage" : "Draft",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/blob/master/collaborative-writing.md"
+  }
+}, {
+  "description" : "In prior posts I've written about Paged Media and Generated Content for paged media and about creating a print @media style sheet. There is another area I've been researching: how to create a book like experience using only web standards, current or proposed.",
+  "name" : "Research on digital book metaphors",
+  "notes" : "",
+  "stage" : "Draft",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/blob/master/book-web-interfaces.md"
+  }
+}, {
+  "description" : "Experiments in long-form web publishing using some technologies in the CSS-WG pipeline such as exclusions and regions. ",
+  "name" : "Long-form publishing",
+  "notes" : "",
+  "stage" : "Development",
+  "type" : "Code / books",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/tree/master/long-form",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Fixed Layout creation, including SASS/CSS, 2-page spreads and video",
+  "name" : "Fixed Layout ebook",
+  "notes" : "The repository does not contain all the necessary material or the final product dues to limitations on Github file sizes.",
+  "stage" : "Development",
+  "type" : "Code / books",
+  "url" : {
+    "code" : "https://github.com/caraya/fixed-layout-ebook",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Create an example of a hand coded ebook ",
+  "name" : "Peter Pan ebook",
+  "notes" : "",
+  "stage" : "Development",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/blob/master/peter-pan/",
+    "other" : "https://github.com/caraya/ebook-experiments/blob/master/peter-pan/peter-pan-full.epub",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Experiment with SASS and CSS to create a basic structure for ebook css",
+  "name" : "CSS basic styles for ebooks",
+  "notes" : "",
+  "stage" : "First stage completed, needs more research and work",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/tree/master/css-basic-for-ebooks",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Implement a basic epub OPF package generator in Python ",
+  "name" : "Python OPF package generator",
+  "notes" : "The current version is a prototype. There's still a lot of manual work to do after running the script",
+  "stage" : "Code: 75% done / Writeup: done",
+  "type" : "Code / Writeup",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/tree/master/python-xml-gen",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/epub-package-opf-generator/"
+  }
+}, {
+  "description" : "Research tools and techniques for subsetting fonts to reduce file size and comply with some fonts’ license restrictions",
+  "name" : "Font subsetting",
+  "notes" : "",
+  "stage" : "Done",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "http://caraya.github.io/ebook-experiments/",
+    "writeup" : "http://publishing-project.rivendellweb.net/subsetting-fonts/"
+  }
+}, {
+  "description" : "Research open source fonts and their licenses to publish books with them to show what the different fonts look like.",
+  "name" : "Fonts for ebooks",
+  "notes" : "",
+  "stage" : "First stage completed",
+  "type" : "Code / books",
+  "url" : {
+    "code" : "",
+    "other" : "http://caraya.github.io/ebook-experiments/",
+    "writeup" : "http://caraya.github.io/ebook-experiments/"
+  }
+}, {
+  "description" : "Test the meteor framework to create my amazon-like reading and recommendation site",
+  "name" : "Meteor App",
+  "notes" : "Site is under development. Because of that we can’t really post a url until it’s close to being done",
+  "stage" : "Research",
+  "type" : "Code / Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "What do we need to consider if we'll put video in our epub content?Accessibility, network access, other considerations",
+  "name" : "Video in Epub",
+  "notes" : "Changed the video to a smaller one. This should stop Github from whining about the size of the video. It also allows me to host everything in Github",
+  "stage" : "Published",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/video-in-epub",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/edit/master/video-in-epub.md"
+  }
+}, {
+  "description" : "One of the features I like most about ePub 3 is the synchronized books (read aloud) what does it take to create the SMIL file and the content to synchronize with the book? How does it change the way we build ePub content",
+  "name" : "Synchronized audio books",
+  "notes" : "",
+  "stage" : "Development",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Create an Angular project thatt will display my project list from a JSON file",
+  "name" : "Project list in Angular",
+  "notes" : "You're looking at the first revision. Further work in inserting new entries and integrating with the MEAN stack ",
+  "stage" : "Early Research and code",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/project-list-angular",
+    "other" : "https://caraya.github.io/project-list-angular/firebase.html",
+    "writeup" : ""
+  }
+}, {
+  "description" : "There is a project out that provides material design directives for Angular. What would it take to use them to create the UI for an app?",
+  "name" : "Material Design in Angular  directives",
+  "notes" : "There is a material directive that you can use to build projects in Angular. How well does it work?",
+  "stage" : "Development",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/project-list-angular",
+    "other" : "http://caraya.github.io/project-list-angular/index-material.html",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Creating a set of D3 Angular directives to test my skill and the technology. Biggest question is how do you nest directives and how do you make them work",
+  "name" : "Angular directives for D3",
+  "notes" : "",
+  "stage" : "Early Research and code",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Creating a set of D3 web components both using Polymer and standard web components.",
+  "name" : "D3 web components",
+  "notes" : "Analyze advantages and disadvantages of each approach. Standard web components are only fully supported in Chrome. Polymer / X-tags is polyfills and syntactic sugar but it works with all modern browsers\n",
+  "stage" : "Early Research and code",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Creating a the web front end for a web application using Web Compontents and Google Paper components. Learn How to use components and how to integrate Paper’s material look ",
+  "name" : "Material Component Experiment",
+  "notes" : "Mostly working.\n\n **Still needs to have CRUD wired in**",
+  "stage" : "Early Research and code",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/polymer-playground",
+    "other" : "https://caraya.github.io/polymer-list/firebase.html",
+    "writeup" : ""
+  }
+}, {
+  "description" : "I don't like GPL but most of the CMS/Blogging software I use is licensed under it so I'm stuck if I want to do any development work I have to release my code under GPL. Automattic/Wordpress.com will not support or advertise any theme or plugin that is not released fully under GPL. That raises questions whether the 'premium theme' creators distributors are in compliance with the license. There is also the crappy attitude and tactic Automattic followed against Chris Pearson... they not only went after the domain that he did have a right to but went after his copyrights and his livelyhood",
+  "name" : "GPL and why I won't work developing for Wordpress ",
+  "notes" : "",
+  "stage" : "idea",
+  "type" : "Writing",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "One of the things I see a lot when I read the #eprdctn twitter hashtag (https://twitter.com/hashtag/eprdctn?f=realtime) is how hard it is to build a coherent set of tools to  make the work of creating a valid set of HTML, CSS and Javascript resources without having to push everything to InDesign.  This article proposes a solution to this issue and a set of tools Javascript to attempt to resolve the issue.",
+  "name" : "Grunt-based Content Generator",
+  "notes" : "Also see Apollo project",
+  "stage" : "Development",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/generator-webpublish",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/blob/master/content-generator.md"
+  }
+}, {
+  "description" : "Article explaining how to create stylesheets that will make your content looks better when printing the web page",
+  "name" : "Creating Print CSS stylesheets",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/creating-print-css-stylesheets/"
+  }
+}, {
+  "description" : "Reseach and development on CSS Paged Media using Paged media and Generated content for paged media specifications from W3C as the guidelines and Antenna House and Prince XML as the formatters",
+  "name" : "CSS Paged Media Update",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code / Writeup",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/tree/master/css-paged-media",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/css-paged-media-update/"
+  }
+}, {
+  "description" : "Exclusions as presented in the CSS working draft allow for print-like layouts. It's mired in committee and it's only supported (partially) by IE. It's still a promising technology that allows (along with shapes) to create magazine-like layouts without resorting to images",
+  "name" : "Exclusions",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/exclusions/"
+  }
+}, {
+  "description" : "Writeup on Famo.us a different way to think abut app development",
+  "name" : "Famo.us: A different approach to developing web apps",
+  "notes" : "",
+  "stage" : "Development",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/docs/blob/master/famo.us.md"
+  }
+}, {
+  "description" : "Media Queries, whether standalon or as part of SASS setup make it easier to handle multiple DPI devices in one set of stylesheets",
+  "name" : "Using Media Queries to handle HDPI screens",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code / Writeup",
+  "url" : {
+    "code" : "https://github.com/caraya/ebook-experiments/blob/master/css-basic-for-ebooks/_hdpi-mediaqueries.scss",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/using-media-queries-to-handle-hdpi-screens/"
+  }
+}, {
+  "description" : "Makes the case for using (X)HTML as the final output of our production process and not to try and create production ready markup from the beginning. It describes some tools that are easier to use than HTML and produce HTML as a result either directly or as content for templates",
+  "name" : "HTML is the final product, not the initial source",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/html-is-the-final-product-not-the-initial-source/"
+  }
+}, {
+  "description" : "Update on CSS Regions, browser suppot (or lack thereof) and what we can do with the technology right now",
+  "name" : "CSS regions, part 2",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code",
+  "url" : {
+    "code" : "http://codepen.io/collection/DcKhj/",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/css-regions-part-2/"
+  }
+}, {
+  "description" : "Update on CSS Shapes, browser support and what we can do with the technology",
+  "name" : "CSS shapes: an update and an expansion",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code / Writeup",
+  "url" : {
+    "code" : "http://codepen.io/caraya/pen/eDgoJ",
+    "other" : "",
+    "writeup" : "http://publishing-project.rivendellweb.net/css-shapes-an-update-and-an-expansion/"
+  }
+}, {
+  "description" : "Research and code on VTT Tracks and how to use them for captioning",
+  "name" : "VTT Captioning",
+  "notes" : "",
+  "stage" : "Published",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/vtt-demos",
+    "other" : "",
+    "writeup" : "https://docs.webplatform.org/wiki/concepts/VTT_Captioning"
+  }
+}, {
+  "description" : "Pick 2 or 3 of the projects above, plan and script a tutorial around them and create the video tutorial",
+  "name" : "Creating video tutorials",
+  "notes" : "",
+  "stage" : "Planning",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "What would a web-enabled offline first reading/engagement platform look like?",
+  "name" : "Athena",
+  "notes" : "",
+  "stage" : "research",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Command line tool to take markdown input and produce a variety of web ready content",
+  "name" : "Apollo",
+  "notes" : "",
+  "stage" : "early prototype",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/generator-webpublish",
+    "other" : "https://www.npmjs.org/package/generator-webpublish",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Create an XML-first workflow for digital publishing. Explore pros and cons and use this as a jumping off point for the eXist research \n\nCompare with Docbook, DITA, TEI",
+  "name" : "XML First Workflow",
+  "notes" : "XHTML and PDF are working. Currently troubleshooting epub3 and exploring how to automate the conversion to Kindle",
+  "stage" : "Implementation",
+  "type" : "Code",
+  "url" : {
+    "code" : "https://github.com/caraya/xml-workflow",
+    "other" : "",
+    "writeup" : "https://github.com/caraya/xml-workflow/readme.md"
+  }
+}, {
+  "description" : "Researching uses of ThreeJS and Leap Motion to build gestural user interfaces",
+  "name" : "Researching Gestural UI",
+  "notes" : "",
+  "stage" : "concept",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "I came across this idea from [Greg Borenstein](http://gregborenstein.com/) about how to [generate stories programatically](https://github.com/dariusk/NaNoGenMo-2014/issues/70) using processing. Using his code as a base, how can we use this to tell stories? what are the limitations",
+  "name" : "Generated Storytelling",
+  "notes" : "",
+  "stage" : "Research",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "How do we need to change our 2D content to better fit in a 3D world. Based in part on Josh Carpenter's [SFHTML5 Presentation](https://www.youtube.com/watch?v=ZOaOYTOpwyM) on VR UX/UI",
+  "name" : "2D and 3D convergence",
+  "notes" : "",
+  "stage" : "Concept",
+  "type" : "Writeup",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Version 2 of Athena Framework. Now that I've learned how to create SPAs with Polymer and now that ServiceWorkers have gained push and notification APIs it's time to revisit Athena and build something closer to what I had in mind when I first envisioned the project.\n\nThis version uses GCM as the Push and Notification server and extends the ServiceWorker to act as the GCM client\n\nA tutorial for push and notification is at [http://updates.html5rocks.com/2015/03/push-notificatons-on-the-open-web](http://updates.html5rocks.com/2015/03/push-notificatons-on-the-open-web)",
+  "name" : "Athena Framework Version 2",
+  "notes" : "Keeping separate repositories to make sure we respect the work people may have done in the original version",
+  "stage" : "Concept",
+  "type" : "Code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Now that Polymer has hit 1.0 it's time to go back and review web components and answer the following questions: **What** are web components? **Why** use web components? **Why not** use web components? **How** to use web components? **Where** to use web components? **How** to build web components? **Should we use** web components now? We will use three different flavors of web components to answer these questions: Vanilla Webcomponents, X-Tags and Polymer 1.0. The end product will be a rebuild of my athena-framework set of components",
+  "name" : "Webcomponents Deep Dive",
+  "notes" : "",
+  "stage" : "early prototype",
+  "type" : "code",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+}, {
+  "description" : "Are we really spoiled by choice when it comes to front end development? ",
+  "name" : "Choice is hard",
+  "notes" : "",
+  "stage" : "Draft",
+  "type" : "writing",
+  "url" : {
+    "code" : "",
+    "other" : "",
+    "writeup" : ""
+  }
+} ]
