@@ -1,0 +1,87 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="bower_components/marked-element/marked-element.html">
+
+<polymer-element name="project-list-fb">
+  <template>
+    <firebase-element
+                  id="project"
+                  data="{{data}}"
+                  keys="{{keys}}"
+                  location="https://my-project-list.firebaseio.com/" >
+    </firebase-element>
+    <style>
+      core-toolbar {
+        margin-bottom: 15px;
+        background-color: #03A9F4;
+        color: white;
+      }
+      .card {
+        font-family: "RobotoDraft", sans-serif;
+        border: 1px solid #000;
+        padding: 16px;
+        margin: 16px;
+        border-radius: 10px;
+      }
+      .project-notes {
+        margin-bottom: 2.5em;
+      }
+    </style>
+    <template repeat="{{key in keys}}">
+      <div class="card">
+        <core-toolbar>
+          <h3 flex three>{{data[key].name}}</h3>
+          <core-icon
+                     class="project-edit"
+                     icon="editor:mode-edit"
+                     alt="Edit Project" on-tap="{{handleEdit}}">
+          </core-icon>
+          <!-- {{keys}} -->
+        </core-toolbar>
+
+        <div class="project-description">
+          <marked-element text="{{data[key].description}}"></marked-element>
+        </div>
+
+        <h3>Project Status</h3>
+
+        <ul>
+          <li>Type: <span>{{data[key].type}}</span></li>
+          <li>Stage: <span>{{data[key].stage}}</span></li>
+        </ul>
+
+        <h3>Relevant Links</h3>
+        <ul>
+          <li>Writeup: <a href="{{data[key].url.writeup}}">{{data[key].url.writeup}}</a>
+          </li>
+          <li>Code: <a href="{{data[key].url.code}}">{{data[key].url.code}}</a>
+          </li>
+          <li>Other: <a href="{{data[key].url.other}}">{{data[key].url.other}}</a>
+          </li>
+        </ul>
+
+        <h3>Project Notes</h3>
+
+        <div class="project-notes">
+          <marked-element text="{{data[key].notes}}"></marked-element>
+        </div>
+        <!-- closes project-notes-->
+    </div>
+    <!-- closes card div -->
+    </template>
+  </template>
+  <script>
+    Polymer({
+      // Trying to get this to fire up an event up the chain
+      // it's not finding the event object.
+      handleEdit: function (evt) {
+        var idx = evt.target.templateInstance.model.i;
+        this.fire('edit-project', {
+          projectId: idx
+        });
+      }
+    });
+  </script>
+</polymer-element>

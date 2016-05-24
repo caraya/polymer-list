@@ -1,0 +1,25 @@
+{
+  "name": "polymer-playground",
+  "version": "0.0.1",
+  "homepage": "https://github.com/caraya/polymer-playground",
+  "authors": [
+    "Carlos Araya <carlos.araya@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.5.2",
+    "paper-elements": "Polymer/paper-elements#~0.5.2",
+    "firebase": "^3.0.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "0.7.22"
+  }
+}

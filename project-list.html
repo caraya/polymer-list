@@ -1,75 +1,132 @@
+<!-- Must import Polymer first -->
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="bower_components/font-roboto/roboto.html">
+<!-- Iron elements first -->
+<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+<!-- Paper elements next -->
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-styles/paper-styles-classes.html">
+<!-- Miscellaneous elements. Note that firebase-element is commented as I'm not using it yet -->
+<!--<link rel="import" href="bower_components/firebase-element/firebase.html">-->
+<link rel="import" href="bower_components/marked-element/marked-element.html">
 
-<polymer-element name="project-list" attributes="url">
+<dom-module id="project-list">
   <template>
-    <core-ajax auto url="{{url}}" handleAs="json" response="{{projects}}">
-    </core-ajax>
-    <style>
+    <style is="custom-style">
+      body {
+        margin: 0;
+      }
+
       :host {
-        font-family: "RobotoDraft" sans-serif;
+        --paper-card-header: {
+          background-color: var(--paper-blue-400);
+          color: white;
+          text-align: center;
+        };
       }
 
-      core-toolbar {
-        margin-bottom: 15px;
-        background-color: #03A9F4;
-        color: white;
+      .cards-container {
+        /* Mixins equivalent to flex: row wrap */
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        /* Space between items */
+        @apply(--layout-justified);
       }
-      .card {
-        font-family: "RobotoDraft", sans-serif;
-        border: 1px solid #000;
-        padding: 16px;
-        margin: 16px;
-        border-radius: 10px;
+
+      .card-content {
+        color: #333;
+        background-color: white;
+        text-align: left;
       }
-      .project-notes {
-        margin-bottom: 2.5em;
+
+      .card-actions {
+        /* Mixins equivalent to flex: row wrap */
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        /* Space between items */
+        @apply(--layout-justified);
       }
+
+
+      paper-card {
+        margin-bottom: 3em;
+        height: 25%;
+        width: 47.5%;
+
+        @apply(--paper-card-header);
+        @apply(--paper-card-header-text);
+        @apply(--paper-card-header-color);
+
+      }
+
+      /*a {*/
+        /*text-decoration: none;*/
+      /*}*/
+
+      /*
+        If the device width is 1000px or smaller switch the layout to vertical
+        and make the cards 100% of the width
+
+        This is the total width of the screen and we need to account for the
+        300px width of the menu
+
+        This also ensures that mobile devices in portrait mode start with a vertical list
+      */
+      @media screen and (max-width: 1000px){
+        .cards-container {
+          @apply(--layout-vertical);
+        };
+
+        paper-card {
+          width: 100%;
+        }
+      }
+
+
     </style>
-      <template repeat="{{project in projects}}">
-    <div class="card">
-        <core-toolbar>
-          <h2>{{project.name}}</h2>
-        </core-toolbar>
+    <iron-ajax auto
+               url="projects.json"
+               handle-as="json"
+               last-response="{{projects}}"></iron-ajax>
 
-        <div class="project-description">
-          {{project.description}}
-        </div>
+    <div class="cards-container">
+    <template is="dom-repeat" items="{{projects}}" as="project">
+        <paper-card heading>
+            <h1>{{project.name}}</h1>
+          <div class="card-content">
+            <h3><strong>Project type: {{project.stage}}</strong></h3>
 
-        <h3>Project Status</h3>
+            <h3>Description:</h3>
 
-        <ul>
-          <li>Type: {{project.type}}</li>
-          <li>Stage: {{project.stage}}</li>
-        </ul>
+            <marked-element markdown="[[project.description]]">
+              <div class="markdown-html"></div>
+            </marked-element>
 
-        <h3>Relevant Links</h3>
-        <ul>
-          <li>Writeup: <a href="{{project.url.writeup}}">{{project.url.writeup}}</a>
-          </li>
-          <li>Code: <a href="{{project.url.code}}">{{project.url.code}}</a>
-          </li>
-          <li>Other: <a href="{{project.url.other}}">{{project.url.other}}</a>
-          </li>
-        </ul>
+            <h3>Project Notes</h3>
 
-        <h3>Project Notes</h3>
+            <marked-element markdown="[[project.notes]]">
+              <div class="markdown-html"></div>
+            </marked-element>
+            <h3>Links</h3>
+            <div class="card-actions">
+                <paper-button><a href="{{project.url.code}}">Code</a></paper-button>
+                <paper-button><a href="{{project.url.writeup}}">Writeup</a></paper-button>
+                <paper-button><a href="{{project.url.other}}">Other</a></paper-button>
+            </div>
+          </div>
+        </paper-card>
 
-        <div class="project-notes">
-          {{project.notes}}
-        </div>
-        <!-- closes project-notes-->
-      </template>
+    </template>
     </div>
-    <!-- closes card div -->
+
   </template>
+
   <script>
     Polymer({
 
+      is: 'project-list'
+
+
     });
   </script>
-</polymer-element>
-
-
+</dom-module>

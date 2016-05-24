@@ -1,0 +1,201 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<!-- PROJECT RELATED IMPORTS-->
+<!-- Import project menu -->
+<link rel="import" href="project-menu.html">
+<!-- Import the form element to interact with project data-->
+<link rel="import" href="project-form.html">
+<!-- Import project list with core-ajax wiring for data load -->
+<link rel="import" href="project-list-fb.html">
+
+<polymer-element name="project-app-fb">
+  <template>
+    <style>
+      :host {
+        font-family: "RobotoDraft", sans-serif;
+      }
+      .card {
+        margin: 15px;
+      }
+      core-toolbar {
+        background-color: #03A9F4;
+        color: white;
+      }
+      [main],
+      [drawer] {
+        background-color: #ffffff;
+      }
+      core-drawer-panel:not([narrow]) #navicon {
+        display: none;
+      }
+      core-overlay {
+        border: 1px solid black;
+        background-color: white;
+        padding: 10px;
+      }
+      paper-button.blue-ripple::shadow #ripple {
+        color: #4285f4;
+      }
+      .form {
+        width: 400px;
+      }
+    </style>
+    <core-drawer-panel id="drawerPanel">
+      <core-header-panel drawer class="tall">
+        <core-toolbar>
+          <h3>Menu</h3>
+        </core-toolbar>
+        <!--
+        Custom element holding menu and items
+        Source: project-menu.html
+      -->
+        <project-menu on-menuItem="{{menuItem}}" id="pMenu"></project-menu>
+      </core-header-panel>
+
+      <core-header-panel main class="tall">
+        <core-toolbar>
+          <!--
+            core-drawer-toggle is new in Polymer 0.5.1
+            and it reduces the amount of CSS and JS you write
+          -->
+          <core-icon core-drawer-toggle
+                     icon="menu"
+                     alt="Menu for narrow displays">
+          </core-icon>
+
+          <h3 flex three>Portfolio Project List </h3>
+
+          <core-icon id="topLogIn"
+              icon="account-circle"
+              alt="log in"
+              on-tap="{{topLogIn}}">
+          </core-icon>
+
+          <core-icon id="topAddP"
+              icon="add-circle"
+              alt="Add new project"
+              on-tap="{{topAddPClick}}">
+          </core-icon>
+<!--
+          <core-icon id="topEdit"
+               icon="editor:mode-edit"
+               alt="Edit Project"
+               on-tap="{{topEditClick}}">
+          </core-icon>
+
+          <core-icon id="topSearch"
+                     icon="search"
+                     alt="Search">
+          </core-icon>
+-->
+
+        </core-toolbar>
+        <!--
+        Custom element holding project list, styles and scripts
+        Source: project-list-fb.html
+        -->
+        <project-list-fb data="{{data}}" keys="{{keys}}" on-edit-project=" {{editProject}} "></project-list-fb>
+      </core-header-panel>
+    </core-drawer-panel>
+<!--
+    <core-overlay id="addOverlay" backdrop="true" closeSelector="core-icon">
+      <core-toolbar class="form">
+        <h3 flex three>Add Project</h3>
+        <core-icon id="addFormClose"
+             icon="close"
+             alt="Close Form">
+        </core-icon>
+      </core-toolbar>
+      <project-form></project-form>
+      <paper-button class="blue-ripple" on-tap="{{addProject}}">
+        Add Project
+      </paper-button>
+    </core-overlay>
+    <core-overlay id="editOverlay" backdrop="true" closeSelector="core-icon">
+      <core-toolbar class="form">
+        <h3 flex three>Edit Project</h3>
+        <core-icon id="editFormClose"
+                   icon="close"
+                   alt="Close Form">
+          </core-icon>
+      </core-toolbar>
+      <project-form></project-form>
+      <paper-button class="blue-ripple">
+        Edit Project
+      </paper-button>
+    </core-overlay>
+
+    <core-overlay id="loginOverlay" backdrop="true" closeSelector="core-icon">
+      <core-toolbar class="form">
+        <h3 flex three>Log In</h3>
+        <core-icon id="loginFormClose"
+             icon="close"
+             alt="Close Form">
+        </core-icon>
+      </core-toolbar>
+      <paper-button class="blue-ripple" on-tap="{{logIn}}">
+        Log In
+      </paper-button>
+    </core-overlay>
+-->
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        ready: function () {
+          // copy global values into instance properties
+          this.$.pMenu.addEventListener("menuItem", function (evt) {
+            if (evt.detail === "addNew") {
+              console.log(evt);
+              this.$.addOverlay.open();
+            }
+
+            if (evt.detail === "logIn") {
+              console.log(evt);
+              this.$.loginOverlay.open();
+            }
+          }.bind(this));
+        },
+
+        navIconClick: function (evt, detail) {
+          this.$.drawerPanel.togglePanel();
+        },
+
+        // Functions for items in the top toolbar
+        topAddPClick: function (evt, detail) {
+          this.$.loginOverlay.close();
+          this.$.addOverlay.open();
+        },
+
+        topLogIn: function (evt, detail) {
+          this.$.addOverlay.close();
+          this.$.loginOverlay.open();
+        },
+
+
+        addProject: function(evt, detail) {
+  //        Simulate other actor setting data to same remote location
+  //        new Firebase('').set({
+  //          name: 'anonymous',
+  //          info: 'none',
+  //          more: {
+  //            color: "yellow"
+  //          }
+  //        });
+  //      };
+        },
+
+        logIn: function(evt, detail) {
+          console.log(evt);
+          console.log(detail);
+        },
+
+        editProject: function(evt, detail, sender) {
+          //this.$.editOverlay.open();
+          console.log(detail);
+          console.log(sender);
+          this.$.editOverlay.open(sender);
+        }
+    });
+    })();
+  </script>
+</polymer-element>

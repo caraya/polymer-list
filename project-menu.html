@@ -1,66 +1,125 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="bower_components/core-menu/core-menu.html">
-<link rel="import" href="bower_components/core-item/core-item.html">
-<link rel="import" href="bower_components/core-icons/core-icons.html">
-<link rel="import" href="bower_components/core-icons/social-icons.html">
-<link rel="import" href="bower_components/core-icons/editor-icons.html">
+<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
 
-<polymer-element name="project-menu">
+
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/iron-iconset-svg/iron-iconset-svg.html">
+<link rel="import" href="bower_components/iron-icon/iron-icon.html">
+
+<link rel="import" href="bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="bower_components/paper-menu/paper-menu-shared-styles.html">
+
+
+<dom-module id="project-menu">
   <template>
     <style>
-      h3 {
-        text-align: center;
+      :host {
+        display: block;
+        --iron-icon-width: 48px;
+        --iron-icon-height: 48px;
       }
-      
-      core-item.core-selected {
-        font-weight: normal;
+      paper-item {
+        --paper-item: {
+          cursor: pointer;
+        };
       }
-    </style>
-      <h3>Professional</h3>
-      <core-menu on-core-select="{{menuItem}}"valueAttr="name">
-        <core-item label="Resume" icon="social:person">
-          <a href="https://drive.google.com/file/d/0B5FUpY1SRnFaR09YWHFuWkxCN3M/view?usp=sharing"></a>
-        </core-item>
-        <core-item label="Writing" icon="link">
-          <a href="http://publishing-project.rivendellweb.net/"></a>
-        </core-item>
-      
-      <h3>Code and Samples</h3>
-        <core-item label="Github" icon="social:post-github">
-          <a href="https://github.com/caraya/"></a>
-        </core-item>
-        <core-item label="Codepen" icon="social:public">
-          <a href="http://codepen.io/caraya/"></a>
-        </core-item>
-        <core-item label="Labs" icon="social:public">
-          <a href="http://labs.rivendellweb.net/"></a>
-        </core-item>
-        
-        <h3>Social</h3>
-        <core-item label="LinkedIn" icon="social:post-linkedin">
-          <a href="http://www.linkedin.com/in/carlosaraya/"></a>
-        </core-item>
-        <core-item label="Google Plus" icon="social:post-gplus">
-          <a href="https://plus.google.com/+CarlosAraya25/posts/p/pub"></a>
-        </core-item>
-        <core-item label="Twitter" icon="social:post-twitter">
-          <a href="http://twitter.com/elrond25"></a>
-        </core-item>
 
-      <h3>Projects</h3>
-        <core-item label="Add New Project" icon="add-circle" name="addNew"></core-item>
-        <core-item label="Log In (GH)" icon="account-circle" name="logIn"></core-item>
-    </core-menu>
+
+      .sublist paper-item {
+        padding-left: 30px;
+      }
+
+      .sublist2 paper-item {
+        padding-left: 50px;
+      }
+
+      .menu-container {
+        margin-left: 1em;
+      }
+      paper-item {
+        display: block;
+        padding-left: 1em;
+        margin-bottom: 2vh;
+      }
+
+      paper-item a {
+        text-decoration: none;
+      }
+
+
+
+    </style>
+    <div class="menu-container">
+
+      <h4>Resume</h4>
+        <paper-menu>
+
+          <paper-item>
+            <a href="https://www.dropbox.com/s/1vznecsjyu2tw18/carlos_araya_one_page.pdf?dl=0">
+              <iron-icon icon="link"></iron-icon>
+              Resume
+            </a>
+          </paper-item>
+
+        </paper-menu>
+
+      <h4>Work Related Social Media</h4>
+        <paper-menu>
+
+          <paper-item>
+            <a href="http://publishing-project.rivendellweb.net/">
+              <iron-icon icon="link"></iron-icon>
+              Publishing Project
+            </a>
+          </paper-item>
+
+
+          <paper-item>
+            <a href="https://plus.google.com">
+              <iron-icon src="images/Google_plus.svg"></iron-icon>
+              Google Plus
+            </a>
+          </paper-item>
+
+          <paper-item>
+            <a href="https://www.linkedin.com/in/carlosaraya">
+              <iron-icon src="images/linkedin.svg"></iron-icon>
+              LinkedIn
+            </a>
+          </paper-item>
+
+          <paper-item>
+            <a href="https://codepen.io/caraya/">
+              <iron-icon src="images/codepen-logo.svg"></iron-icon>
+              Code Pen
+            </a>
+          </paper-item>
+
+          <paper-item>
+            <a href="https://twitter.com/elrond25">
+              <iron-icon src="images/Twitter-Logo.svg"></iron-icon>
+              Twitter
+            </a>
+          </paper-item>
+
+          <paper-item>
+            <a href="https://github.com/caraya">
+              <iron-icon src="images/Octicons-mark-github.svg"></iron-icon>
+              Github
+            </a>
+          </paper-item>
+        </paper-menu>
+
+     </div>
   </template>
+
   <script>
     Polymer({
-      menuItem: function(event, detail) {
-        console.log("menuItem Fired", detail);
-        this.fire("menuItem", detail.item.getAttribute("name") );
-      }
-      
-    });
 
+      is: 'project-menu',
+
+    });
   </script>
-</polymer-element>
+</dom-module>
