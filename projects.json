@@ -1,5 +1,16 @@
 [ {
-  "description" : "The web has become as good as, if not better than native experience. I'm looking at what it would take to build a web based reading experience incorporating newer technologies in the CSS, Web APIs and HTML5 arenas. \n\nAt the same time I seek to build a toolbox for these applications \n\nTwo pieces influenced the thinking on this project: Alex Russell's [Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/) and Craig Mod's [Subcompact Publishing](http://craigmod.com/journal/subcompact_publishing/)",
+  "description": "The VR/AR web seems to be the latest buzz word in the web community.\n\n At I/O 2016 Google made several big announcements about the technology... Older products and frameworks are still going strong but the competition keeps getting stronger all the time \n\n The most interesting metaphor is how we read online... this goes beyond Nielsen's people only scan online content but tries to answer a more fundamental question of building initerfaces and new metaphors for reading content online. \n\n Multi platform support is the sticking point for development. \n\n None of the big desktop vendors support Mac as a platform for either development or playback. Trying to figure out how much of a sore subject this will become moving forward. None of the major HMD support the Mac as a platform so we can't test those devices for that platform... how do we ensure that our solution displays properly on those devices? \n\n See Josh Carpenter's [SFHTML5 Presentation](https://www.youtube.com/watch?v=ZOaOYTOpwyM) on VR UX/UI from 2015 to provide a contrast to where we are now. \n\n Possible deliverables may include: \n\n * Selection of tools and technologies to accomplish the task \n * Ideas for how to dusplay 2D content in a 3D environment \n * Code to accomplish this display",
+  "name": "Moving 2D content to a 3D world",
+  "notes": "",
+  "stage": "Idea",
+  "type": "Code",
+  "url": {
+    "code": "",
+    "other": "",
+    "writeup": ""
+  }
+}, {
+  "description" : "The web has become as good as, if not better than native experience. I'm looking at what it would take to build a web based reading experience incorporating newer technologies in the CSS, Web APIs and HTML5 arenas. \n\nAt the same time I seek to build a toolbox for these applications: What tools to use and how to best leverage what the web can do best over native applications and how to make the web more app like without loosing what makes it great :-). I also want to document the philosophy behind these reading experiences (I deliberately choose not to call them books.... They are more and they are less than printed books and they coexist in a continuum) \n\nTwo pieces influenced the thinking on this project: Alex Russell's [Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/) and Craig Mod's [Subcompact Publishing](http://craigmod.com/journal/subcompact_publishing/)",
   "name" : "Progressive and subcompact web reading experiences",
   "notes" : "This will take a while... I expect to have code and writing to share relatively soon.",
   "stage" : "Research and Writing",
@@ -8,6 +19,17 @@
     "code" : "",
     "other" : "",
     "writeup" : ""
+  }
+}, {
+  "description" : "Build a 2D clone game using given assets and an object oriented architecture",
+  "name" : "Frogger Clone",
+  "notes" : "Udacity Project",
+  "stage" : "Completed",
+  "type" : "Code",
+  "url" : {
+    "code": "https://github.com/caraya/udacity-game",
+    "other": "https://caraya.github.io/udacity-game/",
+    "writeup": ""
   }
 }, {
   "description" : "[eXist](http://exist-db.org/exist/apps/homepage/index.html) seems to be an alternative to Marklogic when it comes to OS X. \n\nHow do you build applications with XML technologies? How is this different than doing an app with Angular/Polymer and MongoDB / MongoLabs",
@@ -73,7 +95,7 @@
   "url" : {
     "code" : "",
     "other" : "",
-    "writeup" : "https://github.com/caraya/docs/blob/master/collaborative-writing.md"
+    "writeup" : "http://publishing-project.rivendellweb.net/creating-a-github-publishing-workflow/"
   }
 }, {
   "description" : "In prior posts I've written about Paged Media and Generated Content for paged media and about creating a print @media style sheet. There is another area I've been researching: how to create a book like experience using only web standards, current or proposed.",
@@ -197,18 +219,7 @@
     "writeup" : ""
   }
 }, {
-  "description" : "Create an Angular project thatt will display my project list from a JSON file",
-  "name" : "Project list in Angular",
-  "notes" : "You're looking at the first revision. Further work in inserting new entries and integrating with the MEAN stack ",
-  "stage" : "Early Research and code",
-  "type" : "Code",
-  "url" : {
-    "code" : "https://github.com/caraya/project-list-angular",
-    "other" : "https://caraya.github.io/project-list-angular/firebase.html",
-    "writeup" : ""
-  }
-}, {
-  "description" : "There is a project out that provides material design directives for Angular. What would it take to use them to create the UI for an app?",
+  "description" : "There is a project out that provides material design directives for Angular. What would it take to use them to create the UI for an app? \n\n This is an Angular 1.0 project and hasn't been updated for Angular 2 and it's unlikely that it'll happen... I've settled on Polymer as my framework of choice.",
   "name" : "Material Design in Angular  directives",
   "notes" : "There is a material directive that you can use to build projects in Angular. How well does it work?",
   "stage" : "Development",
@@ -216,17 +227,6 @@
   "url" : {
     "code" : "https://github.com/caraya/project-list-angular",
     "other" : "http://caraya.github.io/project-list-angular/index-material.html",
-    "writeup" : ""
-  }
-}, {
-  "description" : "Creating a set of D3 Angular directives to test my skill and the technology. Biggest question is how do you nest directives and how do you make them work",
-  "name" : "Angular directives for D3",
-  "notes" : "",
-  "stage" : "Early Research and code",
-  "type" : "Code",
-  "url" : {
-    "code" : "",
-    "other" : "",
     "writeup" : ""
   }
 }, {
@@ -241,24 +241,13 @@
     "writeup" : ""
   }
 }, {
-  "description" : "Creating a the web front end for a web application using Web Compontents and Google Paper components. Learn How to use components and how to integrate Paper’s material look ",
-  "name" : "Material Component Experiment",
-  "notes" : "Mostly working.\n\n **Still needs to have CRUD wired in**",
-  "stage" : "Early Research and code",
-  "type" : "Code",
-  "url" : {
-    "code" : "https://github.com/caraya/polymer-playground",
-    "other" : "https://caraya.github.io/polymer-list/firebase.html",
-    "writeup" : ""
-  }
-}, {
-  "description" : "I don't like GPL but most of the CMS/Blogging software I use is licensed under it so I'm stuck if I want to do any development work I have to release my code under GPL. Automattic/Wordpress.com will not support or advertise any theme or plugin that is not released fully under GPL. That raises questions whether the 'premium theme' creators distributors are in compliance with the license. There is also the crappy attitude and tactic Automattic followed against Chris Pearson... they not only went after the domain that he did have a right to but went after his copyrights and his livelyhood",
-  "name" : "GPL and why I won't work developing for Wordpress ",
+  "description" : "I don't like GPL but most of the CMS/Blogging software I use is licensed under it so I'm stuck if I want to do any development work I have to release my code under GPL. Automattic/Wordpress.com will not support or advertise any theme or plugin that is not released fully under GPL. That raises questions whether the 'premium theme' creators distributors are in compliance with the license and how do we interpret the license itself. \n\n There is also the crappy attitude and tactic Automattic followed against Chris Pearson... they not only went after the domain that he did have a right to but went after his copyrights and his livelyhood. \n\n Beyond philosophical questions there is the issue of GPL's viral nature. If you use GPL code you're required to release as open source... ideally under GPL but any other compatible license will do in a pinch, unless your Matt Mullenweg and Automattic... Their attitude puts developers like me in a bind... if you want to release your code through them use their license, even if you'd normally release the code under a more permissive license than GPL is. Thanks but no thanks.",
+  "name" : "GPL and why I won't release my Wordpress code",
   "notes" : "",
-  "stage" : "idea",
+  "stage" : "Done",
   "type" : "Writing",
   "url" : {
-    "code" : "",
+    "code" : "http://publishing-project.rivendellweb.net/gpl-and-wordpress-developer-beware/",
     "other" : "",
     "writeup" : ""
   }
@@ -433,17 +422,6 @@
   "notes" : "",
   "stage" : "Research",
   "type" : "Code",
-  "url" : {
-    "code" : "",
-    "other" : "",
-    "writeup" : ""
-  }
-}, {
-  "description" : "How do we need to change our 2D content to better fit in a 3D world. Based in part on Josh Carpenter's [SFHTML5 Presentation](https://www.youtube.com/watch?v=ZOaOYTOpwyM) on VR UX/UI",
-  "name" : "2D and 3D convergence",
-  "notes" : "",
-  "stage" : "Concept",
-  "type" : "Writeup",
   "url" : {
     "code" : "",
     "other" : "",

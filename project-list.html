@@ -1,14 +1,4 @@
-<!-- Must import Polymer first -->
-<link rel="import" href="bower_components/polymer/polymer.html">
-<!-- Iron elements first -->
-<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
-<!-- Paper elements next -->
-<link rel="import" href="bower_components/paper-card/paper-card.html">
-<link rel="import" href="bower_components/paper-styles/paper-styles-classes.html">
-<!-- Miscellaneous elements. Note that firebase-element is commented as I'm not using it yet -->
-<!--<link rel="import" href="bower_components/firebase-element/firebase.html">-->
-<link rel="import" href="bower_components/marked-element/marked-element.html">
+<link rel="import" href="elements.html">
 
 <dom-module id="project-list">
   <template>
@@ -19,18 +9,20 @@
 
       :host {
         --paper-card-header: {
-          background-color: var(--paper-blue-400);
+          background-color: #3f51b5;
           color: white;
           text-align: center;
         };
       }
 
       .cards-container {
+        width: 98%;
         /* Mixins equivalent to flex: row wrap */
         @apply(--layout-horizontal);
         @apply(--layout-wrap);
         /* Space between items */
         @apply(--layout-justified);
+
       }
 
       .card-content {
@@ -67,19 +59,11 @@
         text-decoration: underline;
       }
 
-      /*
-        If the device width is 1000px or smaller switch the layout to vertical
-        and make the cards 100% of the width
 
-        This is the total width of the screen and we need to account for the
-        300px width of the menu
-
-        This also ensures that mobile devices in portrait mode start with a vertical list
-      */
-      @media screen and (max-width: 1000px){
+      @media screen and (max-width: 900px){
         .cards-container {
           @apply(--layout-vertical);
-        };
+        }
 
         paper-card {
           width: 100%;
@@ -89,38 +73,43 @@
 
     </style>
     <iron-ajax auto
-               url="projects.json"
+               url="https://dry-bayou-15440.herokuapp.com/list"
                handle-as="json"
                last-response="{{projects}}"></iron-ajax>
 
     <div class="cards-container">
-    <template is="dom-repeat" items="{{projects}}" as="project">
-        <paper-card heading>
-            <h1>{{project.name}}</h1>
-          <div class="card-content">
-            <h3><strong>Project type: {{project.stage}}</strong></h3>
+      <template is="dom-repeat" items="{{projects}}" as="project">
+          <paper-card heading>
+              <h1>[[project.name]]</h1>
+            <div class="card-content">
+              <h3><strong>Project Stage: [[project.stage]]</strong></h3>
 
-            <h3>Description:</h3>
+              <h3>Description:</h3>
 
-            <marked-element markdown="[[project.description]]">
-              <div class="markdown-html"></div>
-            </marked-element>
+              <marked-element markdown="[[project.description]]">
+                <div class="markdown-html"></div>
+              </marked-element>
 
-            <h3>Project Notes</h3>
+              <h3>Project Notes</h3>
 
-            <marked-element markdown="[[project.notes]]">
-              <div class="markdown-html"></div>
-            </marked-element>
-            <h3>Links</h3>
-            <div class="card-actions">
-                <paper-button><a href="{{project.url.code}}">Code</a></paper-button>
-                <paper-button><a href="{{project.url.writeup}}">Writeup</a></paper-button>
-                <paper-button><a href="{{project.url.other}}">Other</a></paper-button>
+              <marked-element markdown="[[project.notes]]">
+                <div class="markdown-html"></div>
+              </marked-element>
+              <h3>Links</h3>
+              <div class="card-actions">
+                <template is="dom-if" if="{{project.url.code}}">
+                  <paper-button><a href="[[project.url.code]]">Code</a></paper-button>
+                </template>
+                <template is="dom-if" if="{{project.url.writeup}}">
+                  <paper-button><a href="[[project.url.writeup]]">Writeup</a></paper-button>
+                </template>
+                <template is="dom-if" if="{{project.url.other}}">
+                  <paper-button><a href="[[project.url.other]]">Other</a></paper-button>
+                </template>
+              </div>
             </div>
-          </div>
-        </paper-card>
-
-    </template>
+          </paper-card>
+      </template>
     </div>
 
   </template>
@@ -129,8 +118,6 @@
     Polymer({
 
       is: 'project-list'
-
-
     });
   </script>
 </dom-module>

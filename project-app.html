@@ -1,17 +1,19 @@
-<!-- Import Polymer -->
-<link rel="import" href="bower_components/polymer/polymer.html">
-<!-- Import app-layout -->
-<link rel="import" href="bower_components/app-layout/app-layout.html">
-<link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
-<!-- Imports to create hamburger menu -->
-<link rel="import" href="bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-<!-- Font -->
-<link rel="import" href="bower_components/font-roboto/roboto.html">
-<!-- Import project specific elements -->
-<link rel="import" href="project-list.html">
-<link rel="import" href="project-menu.html">
+<!--&lt;!&ndash; Import Polymer &ndash;&gt;-->
+<!--<link rel="import" href="bower_components/polymer/polymer.html">-->
+<link rel="import" href="elements.html">
+<!--&lt;!&ndash; Import app-layout &ndash;&gt;-->
+<!--<link rel="import" href="bower_components/app-layout/app-layout.html">-->
+<!--<link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">-->
+<!--<link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">-->
+<!--<link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">-->
+<!--&lt;!&ndash; Imports to create hamburger menu &ndash;&gt;-->
+<!--<link rel="import" href="bower_components/iron-icons/iron-icons.html">-->
+<!--<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">-->
+<!--&lt;!&ndash; Font &ndash;&gt;-->
+<!--<link rel="import" href="bower_components/font-roboto/roboto.html">-->
+<!--&lt;!&ndash; Import project specific elements &ndash;&gt;-->
+<!--<link rel="import" href="project-list.html">-->
+<!--<link rel="import" href="project-menu.html">-->
 
 <dom-module id="project-app">
 
@@ -21,6 +23,11 @@
         margin: 0;
         font-family: 'Roboto', 'Noto', sans-serif;
         background-color: #eee;
+      }
+
+      app-header {
+        color: #fff;
+        background-color: #3f51b5;
       }
 
       app-drawer {
