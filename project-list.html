@@ -80,7 +80,7 @@
                handle-as="json"
                last-response="{{projects}}"></iron-ajax>
 
-    <div class="cards-container" tabindex='3'>
+    <div class="cards-container" tabindex='4'>
       <template is="dom-repeat" items="{{projects}}" as="project">
           <paper-card heading tab-index='0'>
               <h1>[[project.name]]</h1>
@@ -96,10 +96,10 @@
               <h3>Project Notes</h3>
 
               <marked-element markdown="[[project.notes]]">
-                <div class="markdown-html" tabindex='3'></div>
+                <div class="markdown-html" tabindex='4'></div>
               </marked-element>
               <h3>Links</h3>
-              <div class="card-actions" tabindex='3'>
+              <div class="card-actions" tabindex='4'>
                 <template is="dom-if" if="{{project.url.code}}">
                   <paper-button><a href="[[project.url.code]]">Code</a></paper-button>
                 </template>
