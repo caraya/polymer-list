@@ -82,7 +82,7 @@
 
     <div class="cards-container">
       <template is="dom-repeat" items="{{projects}}" as="project">
-          <paper-card heading>
+          <paper-card heading tab-index='0'>
               <h1>[[project.name]]</h1>
             <div class="card-content">
               <h3><strong>Project Stage: [[project.stage]]</strong></h3>
@@ -90,7 +90,7 @@
               <h3>Description:</h3>
 
               <marked-element markdown="[[project.description]]">
-                <div class="markdown-html"></div>
+                <div class="markdown-html" tab-index='0'></div>
               </marked-element>
 
               <h3>Project Notes</h3>
